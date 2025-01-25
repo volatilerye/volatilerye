@@ -1274,7 +1274,7 @@ body .highlight pre:has(+.zeroclipboard-container) {
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .side {
     display: none;
   }
