@@ -1246,13 +1246,13 @@ body .highlight pre:has(+.zeroclipboard-container) {
   border-right: var(--fgColor-default) 1px solid;
 }
 
-.filepath{
+.filepath {
   width: 40%;
   position: fixed;
   font-size: 25px;
   margin-left: -44px;
   padding-left: 20px;
-  transform: translate(0px, -20px); 
+  transform: translate(0px, -20px);
   background-color: #444466;
   border-right: #666688 5px solid;
 }
@@ -1267,8 +1267,21 @@ body .highlight pre:has(+.zeroclipboard-container) {
 .contents {
   overflow: hidden;
 }
+
 .item {
   float: left;
   padding: 0px 10px;
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .side {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    flex-grow: 0;
+    padding: 45px;
+  }
 }
