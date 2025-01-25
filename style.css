@@ -1265,7 +1265,7 @@ body .highlight pre:has(+.zeroclipboard-container) {
 }
 
 .contents {
-  overflow: hidden;
+  padding-top: 45px;
 }
 
 .item-back {

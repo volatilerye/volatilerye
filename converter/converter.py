@@ -32,26 +32,27 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(default_markers)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]([^\n\r]*)[\r\n]+((?:(?!</blockquote>).)*?)</p>\s*</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
-    def replace(text: str) -> str:
+    def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]([^\n\r]*)[\r\n]+((?:(?!</blockquote>).)*?)</p>\s*</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
         marker = match.group(1).lower()  # マーカー名（小文字化）
-        emoji = match.group(3).lower()  # emoji-icon
+        emoji = match.group(3)  # emoji-icon
         icon = (
-            DEFAULT_GITHUB_ICONS.get(marker, "") if emoji == "" else emoji
+            DEFAULT_GITHUB_ICONS.get(marker, "") if emoji is None else emoji
         )  # アイコン
         content = match.group(4).strip()  # アラートの内容
         title = (
             default_titles.get(marker, capitalize(marker)) if content == "" else content
         )  # タイトル
-        text = match.group(5).strip()
+        text = match.group(6).strip()
+        print(marker)
         return "\n".join(
             [
                 f'<div class="{class_prefix} {class_prefix}-{marker}">'
@@ -75,10 +76,8 @@ def convert_markdown_to_html(markdown_text):
     }
     data = {"text": markdown_text, "mode": "markdown"}
     response = requests.post(url, json=data, headers=headers)
-
-    print(response.text)
-    # change string "....md" -> "....html"
-    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', response.text)
+    text = re.sub(r"\\", r"\\\\", response.text) # LaTeXのエスケープを避ける
+    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
 
 
 def generate_html_file(md_path: str):
@@ -105,7 +104,7 @@ def generate_html_file(md_path: str):
 
     with open(html_path, "w") as f:
         html_text = re.sub("{toc}", toc, template_html)
-        html_text = re.sub("{main}", main_text, html_text)
+        html_text = re.sub("{main}", rf'{main_text}', html_text)
         html_text = re.sub(
             "{title}",
             md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled",
@@ -127,17 +126,17 @@ def generate_html_file(md_path: str):
             html_text = re.sub("{back_text}", "[top]", html_text)
 
         dir_depth = len(md_dir_list) - 2
-        contents_info = ""
+        contents_info = "/ "
         for i in range(1, dir_depth+2):
             if len(md_path.split("/")) == 2:
-                contents_info = f'index'
+                contents_info += f'index'
                 break
             if i == len(md_path.split("/")) - 1:
                 contents_info += (
                     md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled"
                 )
             elif i == 1:
-                contents_info = f'<a href={"../" * dir_depth}index.html>index</a> / '
+                contents_info += f'<a href={"../" * dir_depth}index.html>index</a> / '
             else:
                 contents_path = "/".join(md_dir_list[:i+1]) +".md"
                 with open(contents_path, "r") as g:
@@ -150,6 +149,6 @@ def generate_html_file(md_path: str):
                     )
                     contents_info += f'<a href="{"../" * (dir_depth - i + 1)}{md_dir_list[len(md_dir_list)-2]}.html">{info}</a> / '
 
-        html_text = re.sub("{contents_info}", contents_info, html_text[:-2])
+        html_text = re.sub("{contents_info}", contents_info, html_text)
 
         f.write(html_text)
