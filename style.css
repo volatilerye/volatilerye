@@ -1247,7 +1247,7 @@ body .highlight pre:has(+.zeroclipboard-container) {
 }
 
 .filepath {
-  width: 40%;
+  max-width: 1000px;
   position: fixed;
   font-size: 25px;
   margin-left: -44px;
@@ -1261,14 +1261,20 @@ body .highlight pre:has(+.zeroclipboard-container) {
 .main {
   margin-left: 300px;
   flex-grow: 1;
-  padding: 45px;
+  padding: 45px 45px 45px 45px;
 }
 
 .contents {
   overflow: hidden;
 }
 
-.item {
+.item-back {
+  float: left;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.item-info {
   float: left;
   padding: 0px 10px;
   text-align: center;
@@ -1283,5 +1289,11 @@ body .highlight pre:has(+.zeroclipboard-container) {
     margin-left: 0;
     flex-grow: 0;
     padding: 45px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .item-info {
+    display: none;
   }
 }
