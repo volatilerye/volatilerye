@@ -1,2 +1,2 @@
 # mathematics
-mathematics notes
+volatile rye's mathematics website.
