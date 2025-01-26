@@ -68,39 +68,25 @@ def parse_markdown_to_alert(md: str) -> str:
     return re.sub(pattern, replace, md)
 
 
-def convert_markdown_to_html(markdown_text):
-    with open("converter/.env", "r") as f:
-        TOKEN = re.search('TOKEN="(.+)"', f.read()).group(1)
-
-    url = "https://api.github.com/markdown"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": TOKEN,
-    }
-
-    def replace_latex_sign_before_convert_to_html(match: re.Match) -> str:
+def replace_latex_sign_before_convert_to_html(markdown_text: re.Match) -> str:
+    def replace_func(match: re.Match) -> str:
         return (
             match.group(1)
             + re.sub(r"\\([!\"#$%&'()*+,\-.\/:;<=>?@[\\\]^`{|}~])", r"\\\\\1", match.group(2))
             + match.group(1)
         )
 
-    markdown_text = re.sub(
+    return re.sub(
         r"(?<!\\)(\${1,2})(.+?)(?<!\\)\1",
-        replace_latex_sign_before_convert_to_html,
+        replace_func,
         markdown_text,
         flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
-
-    data = {"text": markdown_text, "mode": "markdown"}
-    response = requests.post(url, json=data, headers=headers)
-    text = response.text
-    if markdown_text.find("Simple") > 0:
-        print(f'\u001b[32m{markdown_text}', f'\u001b[33m{text}\u001b[0m')
+    
+def fix_html_for_latex(html_text: str) -> str:
+    text = html_text
     text = re.sub(r"\\(?![\{\}\[\]])", r"\\\\", text)
     text = re.sub(r"\\([\[\]])", r"\\\\\\\1", text)
-    if markdown_text.find("Simple") > 0:
-        print(f'\u001b[34m{text}\u001b[0m')
 
     # 誤変換されてしまうものを修正
     def replace_latex_sign(match: re.Match) -> str:
@@ -121,21 +107,38 @@ def convert_markdown_to_html(markdown_text):
         text,
         flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
-    if markdown_text.find("Simple") > 0:
-        print(f'\u001b[35m{text}\u001b[0m')
     
-    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
+    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)    
+    
+
+def convert_markdown_to_html(markdown_text):
+    with open("converter/.env", "r") as f:
+        TOKEN = re.search('TOKEN="(.+)"', f.read()).group(1)
+
+    url = "https://api.github.com/markdown"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": TOKEN,
+    }
+
+    markdown_text = replace_latex_sign_before_convert_to_html(markdown_text)
+
+    data = {"text": markdown_text, "mode": "markdown"}
+    response = requests.post(url, json=data, headers=headers)
+
+    return fix_html_for_latex(response.text)
 
 
 def generate_html_file(md_path: str):
     with open(md_path, "r") as f:
         markdown_text = f.read()
+        markdown_text = replace_latex_sign_before_convert_to_html(markdown_text)
         temp_markdown_text = re.sub(
             "```(.+?)```", "", markdown_text, flags=re.MULTILINE | re.DOTALL
         )
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
-        toc = md.toc
+        toc = fix_html_for_latex(md.toc)
         toc = re.sub("#", "#user-content-", toc)
         main_text = convert_markdown_to_html(markdown_text)
         main_text = parse_markdown_to_alert(main_text)
@@ -149,35 +152,40 @@ def generate_html_file(md_path: str):
 
     with open(html_path, "w") as f:
         try:
-            html_text = re.sub("{toc}", toc, template_html)
-        except:
-            html_text = re.sub("{toc}", f"regex error!", template_html)
-
-        html_text = re.sub("{main}", rf"{main_text}", html_text)
+            html_text = re.sub(":toc:", toc, template_html)
+        except Exception as e:
+            html_text = re.sub(":toc:", f"regex error!", template_html)
+            print(f'toc: \u001b[32m{toc}\u001b[0m')
+            print(e)
+        html_text = re.sub(":main:", rf"{main_text}", html_text)
         try:
             html_text = re.sub(
-                "{title}",
-                md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled",
+                ":title:",
+                fix_html_for_latex(md.toc_tokens[0]["name"])
+                if len(md.toc_tokens) > 0 else "untitled",
                 html_text,
             )
-        except:
-            html_text = re.sub("{title}", f"regex error!", html_text)
-        html_text = re.sub("{directory}", "../" * (md_path.count("/") - 1), html_text)
-        html_text = re.sub("{filepath}", md_path, html_text)
+        except Exception as e:
+            html_text = re.sub(":title:", f"regex error!", html_text)
+            print(f'title: \u001b[33m{fix_html_for_latex(md.toc_tokens[0]["name"])}\u001b[0m')
+            print(e)
+            
+        html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
+        html_text = re.sub(":filepath:", md_path, html_text)
         md_dir_list = md_path.split("/")
         if len(md_dir_list) > 3:
 
             html_text = re.sub(
-                "{back_text}",
+                ":back_text:",
                 f'<a href="../{md_dir_list[len(md_dir_list)-2]}.html">☜ back</a>',
                 html_text,
             )
         elif len(md_dir_list) == 3:
             html_text = re.sub(
-                "{back_text}", '<a href="../index.html">☜ back</a>', html_text
+                ":back_text:", '<a href="../index.html">☜ back</a>', html_text
             )
         else:
-            html_text = re.sub("{back_text}", "[top]", html_text)
+            html_text = re.sub(":back_text:", "[top]", html_text)
 
         dir_depth = len(md_dir_list) - 2
         contents_info = "/ "
@@ -204,8 +212,10 @@ def generate_html_file(md_path: str):
                     contents_info += f'<a href="{"../" * (dir_depth - i + 1)}{md_dir_list[len(md_dir_list)-2]}.html">{info}</a> / '
 
         try:
-            html_text = re.sub("{contents_info}", contents_info, html_text)
-        except:
-            html_text = re.sub("{contents_info}", "regex error!", html_text)
+            html_text = re.sub(":contents_info:", fix_html_for_latex(contents_info), html_text)
+        except Exception as e:
+            html_text = re.sub(":contents_info:", "regex error!", html_text)
+            print(f'info: \u001b[34m{fix_html_for_latex(contents_info)}\u001b[0m')
+            print(e)
 
         f.write(html_text)
