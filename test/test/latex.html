@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+    integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+    integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+    crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  <link rel="stylesheet" href="../../style.css">
+  <title>regex error!</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+        ]
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="side">
+    <div class="toc">
+      <a href="../../index.html"><img src="../../restio.png" , alt="volatile rye."></a>
+      regex error!
+    </div>
+  </div>
+  <div class="main">
+    <div class="filepath">
+      <div class="item-back"><a href="../test.html">☜ back</a></div>
+      <div class="item-info">regex error!</div>
+    </div>
+    <div class="contents">
+      <div class="markdown-heading"><h1 class="heading-element">$\KaTeX$ rendering test</h1><a id="user-content-katex-rendering-test" class="anchor" aria-label="Permalink: $\KaTeX$ rendering test" href="#katex-rendering-test"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>$\vec{A}\vec{x}\vec x^2\vec{x}_2^2\vec{A}^2\vec{xA}^2; \underbar{X}$</p>
+<p>$$
+\begin{array}{lccccc}
+\text{'\i} &amp; \text{.\i} &amp; \text{`\i} &amp; \text{"\i} &amp; \text{\H\i} &amp; \text{\r\i} \
+\text{'\j} &amp; \text{.\j} &amp; \text{`\j} &amp; \text{"\j} &amp; \text{\H\j} &amp; \text{\r\j} \
+\text{'a} &amp; \text{.a} &amp; \text{`a} &amp; \text{"a} &amp; \text{\H{a}} &amp; \text{\r{a}} \
+\text{'A} &amp; \text{.A} &amp; \text{`A} &amp; \text{"A} &amp; \text{\H{A}} &amp; \text{\r{A}} \
+\text{.I İ} &amp; \text{\H e e̋} &amp; \text{\i ı}
+\end{array}
+$$</p>
+<p>$$
+\begin{align}
+a &amp;= 1 &amp; b &amp;= 2 \
+3a &amp;= 3 &amp; 17b &amp;= 34 \
+\tag{$\ast$} a &amp;\neq b \
+\nonumber a &amp;={}? &amp; b &amp;={}? \
+\end{align}
+$$</p>
+<p>$$
+\begin{aligned}
+a &amp;= 1 &amp; b &amp;= 2 \
+3a &amp;= 3 &amp; 17b &amp;= 34
+\end{aligned}
+$$</p>
+<p>$$
+\begin{alignedat}{3}
+a &amp;= 1 &amp; b &amp;= 2 &amp;\quad c &amp;= 3\
+3a &amp;= 3 &amp; 17b &amp;= 34 &amp;\quad 400c &amp;= 1200
+\end{alignedat}
+$$</p>
+<p>$$
+\left(\begin{array}{|rl:c||}
+1&amp;2&amp;3\ \hline
+1+1&amp;2+1&amp;3+1\cr1\over2&amp;\scriptstyle 1/2&amp;\frac12\[1ex] \hline \hdashline
+\begin{pmatrix}x\y\end{pmatrix}&amp;0&amp;\begin{vmatrix}a&amp;b\c&amp;d\end{vmatrix}
+\end{array}\right] \
+\begin{smallmatrix} a &amp; b \ c &amp; d \end{smallmatrix} ;;
+\begin{subarray}{c}a \ b\end{subarray}
+$$</p>
+<p>$$
+\begin{matrix}
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1,\partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_1,\partial x_n} \
+\frac{\partial^2 f}{\partial x_2,\partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_2,\partial x_n} \
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+\frac{\partial^2 f}{\partial x_n,\partial x_1} &amp; \frac{\partial^2 f}{\partial x_n,\partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_n^2}
+\end{matrix}
+$$</p>
+<p>$1\begin{array}{c}2\3\end{array}4$</p>
+<p>$
+\begin{pmatrix}
+1 \
+2 \
+\end{pmatrix}
+$</p>
+<p>$a+b-c\cdot d/e$</p>
+<p>$$
+\begin{array}{cccc}
++1 &amp; 1+ &amp; 1+1 &amp; (,) \
+1++1 &amp; 3\times) &amp; 1+, &amp; \left(,\right)
+\end{array}
+$$</p>
+<p>$\dbinom{a}{b}\tbinom{a}{b}^{\binom{a}{b}+17}{\scriptscriptstyle \binom a b}$</p>
+<p>$\mathbf{A}^2+\mathbf{B}_3*\mathscr{C}'$</p>
+<p>$$
+\sum_{\boldsymbol{\alpha}}^{\boldsymbol{\beta}} \boldsymbol{\omega}+ \boldsymbol{\int_\alpha^\beta} \boldsymbol{\Omega + {}} \
+\boldsymbol{\lim_{x \to \infty} \log Ax2k\omega\Omega\imath+} \
+x \boldsymbol{+} y \boldsymbol{=} z
+$$</p>
+<p>$$
+\begin{array}{l}
+\boxed{F=ma} \quad \boxed{ac}\color{magenta}{\boxed{F}}\boxed{F=mg} \[2em]
+A_{\angl n} + B_{\angl g} + C_\angln
+\end{array}
+$$</p>
+<p>$$
+f(a,b)=\begin{cases}
+a+1&amp;\text{if }b\text{ is odd} \
+a&amp;\text{if }b=0 \
+a-1&amp;\text{otherwise}
+\end{cases} \
+\begin{rcases}
+a &amp;\text{if } b \
+c &amp;\text{if } d
+\end{rcases}⇒…
+$$</p>
+<p>$$
+\begin{CD} A @&lt;a&lt;&lt; B @&gt;&gt;b&gt; C \ @| @AcAA @VVdV \ D @= E @&gt;&gt;&gt; F \end{CD}
+$$</p>
+<p>$\blue{a}\textcolor{#0f0}{b}\textcolor{red}{c}$</p>
+<p>$$
+\begin{array}{l}
+bl{ack\color{red}red\textcolor{green}{green}red\color{blue}blue}black \
+black\left(black\color{red}red\right)black
+\end{array}
+$$</p>
+<p>$\textcolor{red}{\displaystyle \int x} + 1$</p>
+<p>$a \colorbox{teal} B \fcolorbox{blue}{red}{C} e+\colorbox{teal}x$</p>
+<p>$$
+\begin{array}{l}
+\text{<code>a'' b---c -- d----`e'-{-}-f} -- \\ \text{\it </code>a'' b---c -- d----`e'-{-}-f} <code>x'' \\ \text{\tt </code>a''---} \texttt{``a''---} \mathtt{--} \
+\end{array}
+$$</p>
+<p>$$
+a^{\big| x^{\big(}}_{\Big\uparrow} +
+i^{i^{\Huge x}<em>y}</em>{\Huge z} +
+\dfrac{\Huge x}{y}
+$$</p>
+<p>$$
+\bigl\uparrow\Bigl\downarrow\biggl\updownarrow
+\Biggl\Uparrow\Biggr\Downarrow\biggr\langle\Bigr}\bigr\rfloor; \Set{ x | x&lt;\frac 1 2 } \
+\begin{pmatrix}
+a &amp; b &amp; c\
+a &amp; b &amp; c\
+a &amp; b &amp; c\
+\end{pmatrix}; \Braket{ ϕ | \frac{∂^2}{∂ t^2} | ψ } \
+$$</p>
+<p>$\sum_{i=0}^\infty \frac{1}{i}$</p>
+<p>$$
+{\displaystyle\sqrt{x}}{\sqrt{x}}
+{\displaystyle \frac12}{\frac12}{\displaystyle x^1_2}{x^1_2}
+$$</p>
+<p>$$
+\begin{array}{l}
+\cdots;\dots+\dots\int\dots,\dots \
+\cdots{};\ldots+\ldots\int\ldots,\ldots
+\end{array}
+$$</p>
+<p>$$\begin{equation}\begin{split}a&amp; =b+c-d \ &amp; \quad +e-f \ &amp; =g+h \ &amp; =i \end{split}\end{equation}$$</p>
+<p>$a^{a^a_a}_{a^a_a}$</p>
+<p>$$
+\begin{array}{l}
+\xrightarrow[ab]{ABC} + \xRightarrow{ABC} \
+\xrightleftharpoons[ab]{ABC} + \xhookrightarrow[ab]{ABC} \
+\xtwoheadrightarrow{ABC} + \frac{\xrightarrow[ab]{ABC}}{\xrightarrow[ab]{ABC}} + \left\lvert\xrightarrow[ab]{ABC}\right\rvert
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{l}
+\dfrac{a}{b}\frac{a}{b}\tfrac{a}{b};-\dfrac12;1\tfrac12;{1 \atop 2}
+; {a \brace b} ; {a \brack b} \[1em]
+\genfrac { ]{0.8pt}{0}{a}{b} ; {a \above1.0pt b} ; \cfrac{1}{1+\cfrac{1}{x}}
+\xrightarrow[\dfrac g h]{\displaystyle\frac g h} ; \xrightarrow [2., \dfrac c d] {1., \displaystyle\frac c d}
+\end{array}
+$$</p>
+<p>$\sin\cos\tan\ln\log$</p>
+<p>$$
+\begin{gather} a=\frac 1 2 \ e=b+c \end{gather}
+$$</p>
+<p>$$
+\begin{gathered}
+x = \frac{1}{2} \
+y = \sum_{i=1}^n i
+\end{gathered} \approx
+\begin{array}{c}
+x = \frac{1}{2} \
+y = \sum_{i=1}^n i
+\end{array}
+$$</p>
+<p>$\alpha\beta\gamma\omega$</p>
+<p>$\frac{αβγδεϵζηθϑικλμνξοπϖρϱςστυφϕχψω}{ΓΔΘΞΠΣΦΨΩϝ\mathbf{Ω}\mathbf{\Omega}}$</p>
+<p>$$
+\overbrace{\displaystyle{\oint_S{\vec E\cdot\hat n,\mathrm d a}}}^\text{emf} = \underbrace{\frac{q_{\text{enc}}}{\varepsilon_0}}_{\text{charge}}
+$$</p>
+<p>$$
+\begin{array}{l}
+\displaystyle \int + \oint + \iint + \oiint_i^n \[0.6em]
+\displaystyle \iiint + \oiiint + \textstyle \int + \oint_i^n \[0.6em]
+\iint + \oiint + \iiint + \oiiint \[0.6em]
+\int\limits^x_{y + 4 - a} \int\limits^x_{y + 4 - a}
+\end{array}
+$$</p>
+<p>$\KaTeX, \large \KaTeX$</p>
+<p>$\frac{a\kern{1em}b}{c}a\kern{1em}b\kern{1ex}c\kern{-0.25em}d$</p>
+<p>$$
+\begin{array}{l}
+ab\mathllap{f}cd\mathrlap{g}hij\mathclap{k}lm ; ab\llap{f}cd\rlap{g}hij\clap{k}lm \
+\mathrlap{\frac a b} \frac a b \
+\mathrlap{\overbrace{\phantom{a_0+a_1+a_2}}^m}a_0+a_1+a_2
+\end{array}
+$$</p>
+<p>$\frac{\textcolor{blue}{\rule{1em}{2em}}}{x}$</p>
+<p>$\text{\LaTeX}, \text{\TeX}, \large \text{\LaTeX}, \text{\TeX}$</p>
+<p>$\left( x^2 \right) \left{ x^{x^{x^{x^x}}} \right.$</p>
+<p>$a+\left(x+y\right)-x$</p>
+<p>$\left( x^2 \middle/ \right) \left{ x^{x^{x^{x^x}}} \middle/ y \right.\left(x\middle|y,\middle|,z\right)$</p>
+<p>$$
++\left{\rule{0.1em}{1em}\right.
+x^{+\left{\rule{0.1em}{1em}\right.
+x^{+\left{\rule{0.1em}{1em}\right.}}
+$$</p>
+<p>$$
+\displaystyle\int\limits_2^3 3x^2,dx + \sum\nolimits^n_{i=1}i +
+\textstyle\int\limits_x^y z
+$$</p>
+<p>$$
+\frac{x^2}{y^2} + z^2 =
+z^2 + \frac{x^2}{y^2} =
+\frac{x^2}{y^2} +\nobreak z^2 =
+z^2 + \frac{x^2}{y^2} =
+\frac{x^2}{y^2} + ~ z^2 =
+z^2 + \frac{x^2}{y^2} =
+\frac{x^2}{y^2} + \hspace{1em} z^2 =
+z^2 + \frac{x^2}{y^2} =
+\frac{x^2}{y^2} + z^2 = \hspace*{1em}
+z^2 + \frac{x^2}{y^2} =
+\frac{x^2}{y^2} + z^2 =
+hi \allowbreak there =
+hi \allowbreak there
+$$</p>
+<p>$$
+\begin{matrix}
+\underleftarrow{AB} \quad \underrightarrow{AB} \quad \underleftrightarrow{AB} \quad \undergroup{AB} \
+\underlinesegment{AB} \quad \utilde{AB}  \quad \color{green}{\underrightarrow{AB}} \
+\underrightarrow{F} + \underrightarrow{AB} + \underrightarrow{AB}^2 + \underrightarrow{AB}_2 \
+\frac{\underrightarrow{AB}}{\underrightarrow{AB}} + \sqrt{\underrightarrow{AB}} + \left\lvert\underrightarrow{AB}\right\rvert \
+\text{\underline{text}}
+\end{matrix}
+$$</p>
+<p>$a\mathrel{\mathop{=}\limits^{\blue ?}}b$</p>
+<p>$\mathop{\overline{\mathrm{lim}}}\limits_{x\to\infty}f(x)$</p>
+<p>$$
+{\displaystyle\mathchoice{D}{T}{S}{SS}} {\textstyle\mathchoice{D}{T}{S}{SS}} {\scriptstyle \mathchoice{D}{T}{S}{SS}} {\scriptscriptstyle\mathchoice{D}{T}{S}{SS}} \displaystyle X_{\mathchoice{D}{T}{S}{SS}_{\mathchoice{D}{T}{S}{SS}}}
+$$</p>
+<p>$Ax2k\breve{a}\omega\Omega\imath+\KaTeX$</p>
+<p>$\mathbb{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathbf{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathcal{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathfrak{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathit{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathnormal{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$a\mathop+b\mathop:c\mathop{\delta}e\mathop{\textrm{and}}f\mathrel{\mathop{:}}=g\sin h$</p>
+<p>$\mathrm{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathsf{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\mathscr{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$\begin{matrix*}[l] a &amp; -1 \ -1 &amp; d \end{matrix*} ; \begin{pmatrix*}[r] a &amp; -1 \ -1 &amp; d \end{pmatrix*}$</p>
+<p>$\mathtt{Ax2k\breve{a}\omega\Omega\imath+\KaTeX}$</p>
+<p>$$
+\begin{array}{cc}
+a \bmod 2 &amp; b \pod 3 \
+c \pmod{4} &amp; d \mod{56} \
+\displaystyle a\bmod 2 &amp; \displaystyle b \pod 3 \
+\displaystyle c\pmod{4} &amp; \displaystyle d \mod{56}
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{cc}
+\scriptstyle a\bmod 2 &amp; \scriptstyle b \pod 3 \
+\scriptstyle c\pmod{4} &amp; \scriptstyle d \mod{56}
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{l}
+(a \cdot b) \bmod 257 \
+(a \cdot b) \mkern1mu\mathbin{\mathrm{mod}}\mkern1mu 257 \
+(a \cdot b) \mathbin{\mathrm{mod}} 257
+\end{array}
+$$</p>
+<p>$A =!= B$</p>
+<p>$\boxed{$1,!000,!000}\KaTeX$</p>
+<p>$$
+\dfrac{\frac{a}{b}}{\frac{c}{d}}\dfrac{\dfrac{a}{b}}
+{\dfrac{c}{d}}\frac{\frac{a}{b}}{\frac{c}{d}}
+$$</p>
+<p>$$
+\frac{a^2+b^2}{c^2} \newline
+\frac{a^2+b^2}{c^2} \[1ex]
+\begin{pmatrix}
+a &amp; b \
+c &amp; d \cr
+\end{pmatrix} \
+a+b+c+{d+\e}+f+g
+$$</p>
+<p>$$
+\begin{array}{l}
+\not=\not&gt;\not\geq\not\in\not&lt;\not\leq\not{abc} \
+\not xy + ab \not xy \
+a \neq b \notin c
+\end{array}
+$$</p>
+<p>$a \bigl. + 2 \quad \left. + a \right)$</p>
+<p>$$
+\begin{matrix}
+\rm rm &amp; it &amp; \it it &amp; \bf bf &amp; \sf sf &amp; \tt tt \
+\text{\rm rm} &amp; \text{rm} &amp; \text{\it it} &amp; \text{\bf bf} &amp; \text{\sf sf} &amp; \text{\tt tt} \
+i\rm r\it i &amp; \text{r\it i\rm r}
+\end{matrix}
+$$</p>
+<p>$$
+\begin{matrix}
+\operatorname g (z) + 5\operatorname{g}z + \operatorname{Gam-ma}(z) \
+\operatorname{Gam ma}(z) + \operatorname{\Gamma}(z) + \operatorname{}x \
+\operatorname*{asin} x + \operatorname*{asin}_y x + \operatorname*{asin}\limits_y x \[0.3em]
+{\displaystyle \operatorname*{asin}_y x}
+\end{matrix}
+$$</p>
+<p>$$
+\begin{matrix}
+{\sin_2^2 \lim_2^2 \int_2^2 \sum_2^2}
+{\displaystyle \lim_2^2 \int_2^2 \intop_2^2 \sum_2^2} \
+\limsup_{x \rightarrow \infty} x \stackrel{?}= \liminf_{x \rightarrow \infty} x \
+{\displaystyle \limsup_{x \rightarrow \infty} x:: \sum_{\substack{0&lt;i&lt;m\0&lt;j&lt;n}}}
+\end{matrix}
+$$</p>
+<p>$x\underline{x}\underline{\underline{x}}\underline{x_{x_{x_x}}}\underline{x^{x^{x^x}}}\overline{x}\overline{x}\overline{x^{x^{x^x}}} \blue{\overline{\underline{x}}\underline{\overline{x}}}$</p>
+<p>$$
+\begin{array}{l}
+x\overset?=1 \quad \underset{*}{x}^2 \quad \overset{a}{b}b\underset{a}{b}b \
+{\displaystyle\lim_{t\underset{&gt;0}\to0}}\
+a+b+c+d\overset{b+c=0}\longrightarrow a+d\
+\overset { x = y } { \sqrt { a b } }
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{l}
+\dfrac{1+\phantom{x^{\blue{2}}} = x}{1+x^{\blue{2}} = x} \left(\vphantom{\int_t} zzz \right) \left( X \hphantom{\frac{\frac X X}{X}} \right)\
+\text{a \phantom{123}} b \hphantom{\frac{1}{2}}=c \vphantom{101112} d \
+\sqrt{\mathstrut a} + \sqrt{\mathstrut d}
+\end{array}
+$$</p>
+<p>$120\text{V}\phase{-78.2^\circ};\Large\phase{78.2^\circ}$</p>
+<p>$\mu\pmb{\mu}\pmb{=}\mu\pmb{+}\mu$</p>
+<p>$f'+f_2'+f^{f'}$</p>
+<p>$x'^2+x'''^2+x'^2_3+x_3'^2$</p>
+<p>$$
+\begin{matrix}
+\frac{a}{a\raisebox{0.5em}{b}} \cdot \frac{a\raisebox{-0.5em}{b}}{a} \cdot \sqrt{a\raisebox{0.5em}{b}} \cdot \sqrt{a\raisebox{-0.5em}{b}} \cdot \sqrt{a\raisebox{0.5em}{b}\raisebox{-0.5em}{b}} \[2em]
+a + \left(\vcenter{\hbox{$\frac{a+b}{\dfrac{c}{d}}$}}\right)
+\end {matrix}
+$$</p>
+<p>$$
+\begin{matrix}
+A \xrightleftarrows{} B \xrightequilibrium{} C \xleftequilibrium{} D \
+A \xrightleftarrows{over} B \xrightequilibrium{over} C \xleftequilibrium{over} D
+\end{matrix}
+$$</p>
+<p>$$
+\begin{array}{ll}
+a\kern1emb^{a\kern1emb^{a\kern1emb}} &amp;
+{\footnotesize a\kern1emb^{a\kern1emb^{a\kern1emb}}} \
+a\mkern18mub^{a\mkern18mub^{a\mkern18mub}} &amp;
+{\footnotesize a\mkern18mub^{a\mkern18mub^{a\mkern18mub}}} \
+\rule{1em}{1em}^{\rule{1em}{1em}}\rule{18mu}{18mu}^{\rule{18mu}{18mu}} &amp;
+{\footnotesize\rule{1em}{1em}^{\rule{1em}{1em}}\rule{18mu}{18mu}^{\rule{18mu}{18mu}}}
+\end{array}
+$$</p>
+<p>$\frac{\mathrlap{x}}{2}$</p>
+<p>$\rule{1em}{0.5em}\rule{1ex}{2ex}\rule{1em}{1ex}\rule{1em}{0.431ex}$</p>
+<p>$$
+tex: '{\tiny a+b}a+b{\Huge a+b}'
+pre: x
+post: M
+$$</p>
+<p>$$
+{\Huge x}{\LARGE y}{\normalsize z}{\scriptsize w}\sqrt[\small 3]{x+1}
+$$</p>
+<p>$\left( X^{\smash 2} \right) \sqrt{\smash[b]{y=}}$</p>
+<p>$$
+\begin{matrix}
+^3+[-1][1-1]1=1(=1)\lvert a\rvert<del>b \
+\scriptstyle{^3+[-1][1-1]1=1(=1)\lvert a\rvert</del>b} \
+\scriptscriptstyle{^3+[-1][1-1]1=1(=1)\lvert a\rvert~b} \
+a : a \colon a \
+\end{matrix}
+$$</p>
+<p>$$
+\sqrt{\sqrt{\sqrt{x}}}_{\sqrt{\sqrt{x}}}^{\sqrt{\sqrt{\sqrt{x}}}
+^{\sqrt{\sqrt{\sqrt{x}}}}} \
+\sqrt{\frac{\frac{A}{B}}{\frac{A}{B}}} ;
+\sqrt{\frac{\frac{\frac{A}{B}}{\frac{A}{B}}}{\frac{\frac{A}{B}}{\frac{A}{B}}}}
+$$</p>
+<p>$$
+\begin{array}{l}
+1+\sqrt[3]{2}+\sqrt[1923^234]{2^{2^{2^{2^{2^{2^{2^{2^{2^{2^{2^2}}}}}}}}}}} \
+\Huge \sqrt[3]{M} + x^{\sqrt[3] a}
+\end{array}
+$$</p>
+<p>$a \stackrel{?}{=} b \stackrel{\text{def}}{=} c$</p>
+<p>$$
+\begin{array}{l}
+\overrightarrow{AB} \quad \overleftarrow{AB} \quad \Overrightarrow{AB} \quad \overleftrightarrow{AB} \quad \overgroup{AB} \
+\overlinesegment{AB} \quad \overleftharpoon{AB} \quad \overrightharpoon{AB} \quad \left(\underleftarrow{\frac{value}{j}}\right)  \
+\widecheck{AB} \quad \widehat{ABC} \quad \widetilde{AB} \quad \widetilde{ABC} \
+\overrightarrow{F} + \overrightarrow{AB} + \overrightarrow{F}^2 + \overrightarrow{F}_2 + \overrightarrow{F}_1^2 \
+\overrightarrow{AB}^2+\frac{\overrightarrow{AB}}{\overrightarrow{AB}} + \sqrt{\overrightarrow{AB}} + \left\lvert\overrightarrow{AB}\right\rvert
+\end{array}
+$$</p>
+<p>$$
+\red{\overrightarrow{AB}} \quad \color{blue}{\overleftarrow{AB}} \quad \color{blue}{\green{\Overrightarrow{AB}}} \quad \widehat{\theta} \widetilde{A}
+$$</p>
+<p>$$
+\begin{array}{l}
+\cancel x \quad \cancel{2B} + \bcancel 5 +\bcancel{5ay} \
+\sout{5ab} + \sout{5ABC} + \xcancel{\oint_S{\vec E\cdot\hat n,\mathrm d a}} \[0.3em]
+\frac{x+\cancel B}{x+\cancel x} + \frac{x+\cancel y}{x} + \cancel{B}_1^2 + \cancel{B^2} \[0.2em]
+\left\lvert\cancel{ac}\right\rvert
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{l}
+\red{\cancel x \quad \cancel{2B} + \bcancel 5 +\bcancel{5ay}} \
+\color{green}{\sout{5ab} + \sout{5ABC} + \xcancel{\oint_S{\vec E\cdot\hat n,\mathrm d a}}}
+\end{array}
+$$</p>
+<p>$\scriptstyle ab;cd$</p>
+<p>$a\cdot b\scriptstyle a\cdot ba\textstyle\cdot ba\scriptstyle\cdot b$</p>
+<p>$a_2f_2{f}_2{aa}_2{af}_2\mathbf{y}_Ay_A$</p>
+<p>$$
+x^{x^{x}}\Big|x_{x_{x_{x_{x}}}}\bigg|x^{x^{x_{x_{x_{x_{x}}}}}}\bigg|
+$$</p>
+<p>$$
+\omega^8_{888} \quad \frac{1}{\hat{\omega}^{8}<em>{888}} \quad \displaystyle\sum</em>{\omega^{8}_{888}}
+$$</p>
+<p>$\displaystyle \int_{2+3}x f^{2+3}+3\lim_{2+3+4+5}f$</p>
+<p>$$
+\begin{array}{l}
+𝐀𝐚𝟎𝐴𝑎𝑨𝒂𝔅𝔞𝔸𝒜 \
+𝖠𝖺𝟢𝗔𝗮𝟬𝘈𝘢𝙰𝚊𝟶 \
+\text{𝐀𝐚𝟎𝐴𝑎𝑨𝒂𝔅𝔞𝔸𝒜} \
+\text{𝖠𝖺𝟢𝗔𝗮𝟬𝘈𝘢𝙰𝚊𝟶} \
+\mathrm{𝐀𝐚𝑨𝒂𝔅𝔞𝔸𝒜} \
+\end{array}
+$$</p>
+<p>$'\underbrace{\sqrt{\vec{x}} + \sqrt{\vec{\color{#f00}y}}}'$</p>
+<pre><code># Some of these styles should affect both svg and text. We want
+# those to be inherited. But some of the styles only affect svg
+# and the point of this test is to verify that the svg-only
+# styles (like fill-opacity) are not inherited
+styles: 'display:block; width:500px;border:solid yellow 5px;padding:50px;background:#ccc;color:green;font-size:92px;transform:translate(100px,250px)rotate(-45deg);fill-opacity:0;stroke-width:40;stroke:blue;'
+</code></pre>
+<p>$$
+\maltese\degree\pounds$\minuso
+\text{\maltese\degree\pounds\textdollar}
+$$</p>
+<p>$\tag{$+$hi} \frac{x^2}{y}+x^{2^y}$</p>
+<p>$\frac{a}{b}\text{c~ {ab} \ e}+fg$</p>
+<p>$$
+\begin{array}{l}
+\texttt{12345678901234} \
+\texttt{A test  1~~2\ \ 3} \
+\verb|A test 1  2  3|
+\end{array}
+$$</p>
+<p>$$
+\begin{matrix}
+\textsf{abc123 \textbf{abc123} \textit{abc123}}\
+\text{abc123 \textbf{abc123} \textit{abc123}}\
+\textrm{abc123 \textbf{abc123} \textit{abc123}}\
+\textsf{\textrm{\textbf{abc123}} \textbf{abc123} \textit{abc123}}\
+\textit{abc123 \textbf{abc123} \textsf{abc123}}\
+\end{matrix}
+$$</p>
+<p>$$
+\begin{matrix}
+\text{for $a &lt; b$ and $ c &lt; d $}. \
+\textsf{for $a &lt; b$ and $ c &lt; d $}. \
+\textsf{for $a &lt; b \textbf{ and } c &lt; d $} \
+\text{\sf for $a &lt; b$ and $c &lt; d$.}
+\end{matrix}
+$$
+$\begin{matrix}\text{ÀàÇçÉéÏïÖöÛû} \ \text{БГДЖЗЙЛФЦШЫЮЯ} \ \text{여보세요} \ \text{私はバナナです} \end{matrix}$</p>
+<p>$$
+\begin{array}{ll}
+\mathrm H\kern 1em\mathrm H \text{\tiny (1em)}
+&amp; \mathrm H\kern 1ex\mathrm H \text{\tiny (1ex)} \
+\mathrm H{\scriptstyle \kern 1em}\mathrm H \text{\tiny (ss 1em)}
+&amp; \mathrm H{\scriptstyle \kern 1ex}\mathrm H \text{\tiny (ss 1ex)} \
+\mathrm H{\small \kern 1em}\mathrm H \text{\tiny (sm 1em)}
+&amp; \mathrm H{\small \kern 1ex}\mathrm H \text{\tiny (sm 1ex)} \
+\mathrm H\mkern 18mu\mathrm H \text{\tiny (18mu)}
+&amp; \mathrm H\kern 1cm\mathrm H \text{\tiny (1cm)} \
+\mathrm H{\scriptstyle \mkern 18mu}\mathrm H \text{\tiny (ss 18mu)}
+&amp; \mathrm H{\scriptstyle \kern 1cm}\mathrm H \text{\tiny (ss 1cm)} \
+\mathrm H{\small \mkern 18mu}\mathrm H \text{\tiny (sm 18mu)}
+&amp; \mathrm H{\small \kern 1cm}\mathrm H \text{\tiny (sm 1cm)}
+\end{array}
+$$</p>
+<p>$\err,\frac\fracerr3,2^\superr_\suberr,\sqrt\sqrterr$</p>
+<p>$$
+\begin{array}{ll}
+\verb \verb ,   &amp; \verb|\verb  |, \
+\verb* \verb* , &amp; \verb*|\verb* |, \
+\verb! &amp; ! &amp; \scriptstyle\verb|ss verb| \
+\verb*! &amp; ! &amp; \small\verb|sm verb| \
+\verb|``---''~|
+\end{array}
+$$</p>
+<p>$potato<br>blah$</p>
+<p>$x^{\Huge y}z$</p>
+<p>$<br>moo$</p>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

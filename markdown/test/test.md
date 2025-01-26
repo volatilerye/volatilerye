@@ -1,4 +1,5 @@
-# テスト用
+# 表示テスト用
 
-- [テストリンク](test/test.md)
-- [alert](test/alert.md)
+- [$\LaTeX$ test](test/latex.md)
+- [markdown test](test/test.md)
+- [alert test](test/alert.md)

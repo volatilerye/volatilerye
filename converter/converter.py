@@ -32,7 +32,7 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(default_markers)
     pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
@@ -66,18 +66,24 @@ def parse_markdown_to_alert(md: str) -> str:
 
 
 def convert_markdown_to_html(markdown_text):
-    with open('converter/.env', 'r') as f:
+    with open("converter/.env", "r") as f:
         TOKEN = re.search('TOKEN="(.+)"', f.read()).group(1)
-    
+
     url = "https://api.github.com/markdown"
     headers = {
         "Content-Type": "application/json",
         "Authorization": TOKEN,
     }
     data = {"text": markdown_text, "mode": "markdown"}
+
     response = requests.post(url, json=data, headers=headers)
-    text = re.sub(r"\\", r"\\\\", response.text) # LaTeXのエスケープを避ける
-    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
+    text = response.text
+    try:
+        # text = re.sub(r'[#%&_~\{\}]', r'\\\0', text)
+        text = re.sub(r"\\", r"\\\\", text)
+        return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
+    except:
+        return "<h1>Regex Error!</h1>\n"
 
 
 def generate_html_file(md_path: str):
@@ -96,27 +102,39 @@ def generate_html_file(md_path: str):
     with open("converter/template.html", "r") as f:
         template_html = f.read()
 
-    html_path = re.sub(
-        "^markdown", ".", os.path.splitext(md_path)[0] + ".html"
-    )
+    html_path = re.sub("^markdown", ".", os.path.splitext(md_path)[0] + ".html")
     if not os.path.exists(html_path):
         os.makedirs(os.path.dirname(html_path), exist_ok=True)
 
     with open(html_path, "w") as f:
-        html_text = re.sub("{toc}", toc, template_html)
-        html_text = re.sub("{main}", rf'{main_text}', html_text)
-        html_text = re.sub(
-            "{title}",
-            md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled",
-            html_text,
-        )
+        print(toc)
+        try:
+            html_text = re.sub("{toc}", toc, template_html)
+        except:
+            html_text = re.sub("{toc}", f"regex error!", template_html)
+
+        html_text = re.sub("{main}", rf"{main_text}", html_text)
+        try:
+            html_text = re.sub(
+                "{title}",
+                md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled",
+                html_text
+            )
+        except:
+            html_text = re.sub(
+                "{title}",
+                f"regex error!",
+                html_text
+            )
         html_text = re.sub("{directory}", "../" * (md_path.count("/") - 1), html_text)
         html_text = re.sub("{filepath}", md_path, html_text)
         md_dir_list = md_path.split("/")
         if len(md_dir_list) > 3:
-            
+
             html_text = re.sub(
-                "{back_text}", f'<a href="../{md_dir_list[len(md_dir_list)-2]}.html">☜ back</a>', html_text
+                "{back_text}",
+                f'<a href="../{md_dir_list[len(md_dir_list)-2]}.html">☜ back</a>',
+                html_text,
             )
         elif len(md_dir_list) == 3:
             html_text = re.sub(
@@ -127,9 +145,9 @@ def generate_html_file(md_path: str):
 
         dir_depth = len(md_dir_list) - 2
         contents_info = "/ "
-        for i in range(1, dir_depth+2):
+        for i in range(1, dir_depth + 2):
             if len(md_path.split("/")) == 2:
-                contents_info += f'index'
+                contents_info += f"index"
                 break
             if i == len(md_path.split("/")) - 1:
                 contents_info += (
@@ -138,7 +156,7 @@ def generate_html_file(md_path: str):
             elif i == 1:
                 contents_info += f'<a href={"../" * dir_depth}index.html>index</a> / '
             else:
-                contents_path = "/".join(md_dir_list[:i+1]) +".md"
+                contents_path = "/".join(md_dir_list[: i + 1]) + ".md"
                 with open(contents_path, "r") as g:
                     md_cont = markdown.Markdown(extensions=["toc"])
                     md_cont.convert(g.read())
@@ -149,6 +167,9 @@ def generate_html_file(md_path: str):
                     )
                     contents_info += f'<a href="{"../" * (dir_depth - i + 1)}{md_dir_list[len(md_dir_list)-2]}.html">{info}</a> / '
 
-        html_text = re.sub("{contents_info}", contents_info, html_text)
-
+        try:
+            html_text = re.sub("{contents_info}", contents_info, html_text)
+        except:
+            html_text = re.sub("{contents_info}", "regex error!", html_text)
+        
         f.write(html_text)

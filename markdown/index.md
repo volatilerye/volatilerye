@@ -15,7 +15,7 @@
 
 ## contents
 
-(まだ準備中．．．．．．)
+<!-- (まだ準備中．．．．．．)
 
 ### 解析学 (analysis)
 - (準備中)
@@ -27,7 +27,7 @@
 - (準備中)
 
 ### 幾何学 (geometry)
-- (準備中)
+- [位相幾何学](geometry/topology.md)
 
 ### 代数学 (algebra)
 - (準備中)
@@ -36,20 +36,12 @@
 - (準備中)
 
 ### 論理学 (logic theory)
-- (準備中)
+- (準備中) -->
 
-<!-- ### テスト用
-- [テスト](test/test.md) -->
+### テスト用
+- [テスト](test/test.md)
 
 ---
 
 ## link
 
-連絡先. github 以外は不健全な絵を載せてたりするので注意!
-
-| service     | link                                                                  |
-| ----------- | --------------------------------------------------------------------- |
-| GitHub      | [volatilerye](https://github.com/volatilerye)                         |
-| X (twitter) | [@volatile_](https://x.com/volatile_) (🔞 NSFW)                        |
-| Misskey.io  | [@volatile](https://misskey.io/@volatile) (🔞 NSFW)                    |
-| Bluesky     | [@volatilerye.art](https://bsky.app/profile/volatilerye.art) (🔞 NSFW) |
