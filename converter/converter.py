@@ -20,18 +20,18 @@ MATHEMATIC_SUMMARIZE_ICONS = {
     "lemma": DEFAULT_GITHUB_ICONS["important"],
     "corollary": DEFAULT_GITHUB_ICONS["important"],
     "proposition": DEFAULT_GITHUB_ICONS["important"],
-    "definition": DEFAULT_GITHUB_ICONS["note"],
+    "definition": DEFAULT_GITHUB_ICONS["important"],
     "example": DEFAULT_GITHUB_ICONS["tip"],
     "exercise": DEFAULT_GITHUB_ICONS["tip"],
     "remark": DEFAULT_GITHUB_ICONS["caution"],
-    "note": DEFAULT_GITHUB_ICONS["warning"],
+    "note": DEFAULT_GITHUB_ICONS["note"],
     "case": DEFAULT_GITHUB_ICONS["note"],
 }
 
 # デフォルトの設定
 markers_list = list((DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS).keys())
 marker_replace_dict = {
-    "note": "note",
+    # "note": "note",
     "tip": "tip",
     "important": "important",
     "warning": "warning",
@@ -45,13 +45,13 @@ marker_replace_dict = {
     "example": "note",
     "exercise": "default",
     "remark": "important",
-    "note": "important",
+    "note": "tip",
     "case": "note",
 }
 
 icons_dict = DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS
 default_titles = {
-    "note": "Note",
+    # "note": "Note",
     "tip": "Tip",
     "important": "Important",
     "warning": "Warning",
@@ -65,7 +65,7 @@ default_titles = {
     "example": "例",
     "exercise": "演習",
     "remark": "注意",
-    "note": "注意",
+    "note": "情報",
     "case": "例", 
 }
 class_prefix = "markdown-alert"
