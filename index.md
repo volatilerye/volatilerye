@@ -43,4 +43,15 @@
 
 ### 論理学 (logic theory)
 - (準備中)
-  
+
+
+## このサイトについて
+
+この個人サイトは既存の Web サービスは使わずに制作しました. というのも, 
+
+- css は [github-markdown-css](https://github.com/sindresorhus/github-markdown-css) のコードを流用)
+- Markdown → HTML の変換は Github の [Rest API](https://docs.github.com/en/rest/markdown) に request を送り変換
+- $\LaTeX$ を正常にレンダリングできるような converter を実装
+- [GitHub Flavored Markdown] に独自実装したアラート記法（定義・定理等のブロック）を追加
+- $\LaTeX$ のレンダリングには [$\KaTeX$](https://katex.org/) を利用
+
