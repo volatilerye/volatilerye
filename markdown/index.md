@@ -1,4 +1,4 @@
-# volatile rye.
+# volatile rye's mathematics note.
 
 ![restio](restio.png)
 
