@@ -172,7 +172,7 @@ def generate_html_file(md_path: str):
             print(f'title: \u001b[33m{fix_html_for_latex(md.toc_tokens[0]["name"])}\u001b[0m')
             print(e)
             
-        html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
+        # html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
         html_text = re.sub(":filepath:", md_path, html_text)
         md_dir_list = md_path.split("/")
         if len(md_dir_list) > 3:
