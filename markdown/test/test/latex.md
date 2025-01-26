@@ -2,13 +2,13 @@
 $\vec{A}\vec{x}\vec x^2\vec{x}_2^2\vec{A}^2\vec{xA}^2\; \underbar{X}$
 
 $$
-    \begin{array}{lccccc}
-    \text{\'\i} & \text{\.\i} & \text{\`\i} & \text{\"\i} & \text{\H\i} & \text{\r\i} \\
-    \text{\'\j} & \text{\.\j} & \text{\`\j} & \text{\"\j} & \text{\H\j} & \text{\r\j} \\
-    \text{\'a} & \text{\.a} & \text{\`a} & \text{\"a} & \text{\H{a}} & \text{\r{a}} \\
-    \text{\'A} & \text{\.A} & \text{\`A} & \text{\"A} & \text{\H{A}} & \text{\r{A}} \\
-    \text{\.I İ} & \text{\H e e̋} & \text{\i ı}
-    \end{array}
+\begin{array}{lccccc}
+\text{\'\i} & \text{\.\i} & \text{\`\i} & \text{\"\i} & \text{\H\i} & \text{\r\i} \\
+\text{\'\j} & \text{\.\j} & \text{\`\j} & \text{\"\j} & \text{\H\j} & \text{\r\j} \\
+\text{\'a} & \text{\.a} & \text{\`a} & \text{\"a} & \text{\H{a}} & \text{\r{a}} \\
+\text{\'A} & \text{\.A} & \text{\`A} & \text{\"A} & \text{\H{A}} & \text{\r{A}} \\
+\text{\.I İ} & \text{\H e e̋} & \text{\i ı}
+\end{array}
 $$
 
 $$
@@ -127,9 +127,9 @@ $$
 $$
 
 $$
-        a^{\big| x^{\big(}}_{\Big\uparrow} +
-        i^{i^{\Huge x}_y}_{\Huge z} +
-        \dfrac{\Huge x}{y}
+    a^{\big| x^{\big(}}_{\Big\uparrow} +
+    i^{i^{\Huge x}_y}_{\Huge z} +
+    \dfrac{\Huge x}{y}
 $$
 
 $$
@@ -442,11 +442,7 @@ $\frac{\mathrlap{x}}{2}$
 
 $\rule{1em}{0.5em}\rule{1ex}{2ex}\rule{1em}{1ex}\rule{1em}{0.431ex}$
 
-$$
-    tex: '{\tiny a+b}a+b{\Huge a+b}'
-    pre: x
-    post: M
-$$
+$'{\tiny a+b}a+b{\Huge a+b}'$
 
 $$
     {\Huge x}{\LARGE y}{\normalsize z}{\scriptsize w}\sqrt[\small 3]{x+1}
@@ -538,17 +534,12 @@ $$
 
 $'\underbrace{\sqrt{\vec{x}} + \sqrt{\vec{\color{#f00}y}}}'$
 
-    # Some of these styles should affect both svg and text. We want
-    # those to be inherited. But some of the styles only affect svg
-    # and the point of this test is to verify that the svg-only
-    # styles (like fill-opacity) are not inherited
-    styles: 'display:block; width:500px;border:solid yellow 5px;padding:50px;background:#ccc;color:green;font-size:92px;transform:translate(100px,250px)rotate(-45deg);fill-opacity:0;stroke-width:40;stroke:blue;'
+
 $$
     \maltese\degree\pounds\$\minuso
     \text{\maltese\degree\pounds\textdollar}
 $$
 
-$\tag{$+$hi} \frac{x^2}{y}+x^{2^y}$
 
 $\frac{a}{b}\text{c~ {ab} \ e}+fg$
 

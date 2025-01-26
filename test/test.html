@@ -27,8 +27,23 @@
         delimiters: [
           { left: "$$", right: "$$", display: true },
           { left: "$", right: "$", display: false },
-        ]
+        ],
+        ignoredTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ],
+        preProcess: function (text) {
+          // \$ を通貨記号として扱うためにエスケープされたものを置換
+          return text.replace(/\\\$/g, "ESCAPED_DOLLAR");
+        },
       });
+
+      // 通貨記号用に一時的に置換したテキストを元に戻す
+      document.body.innerHTML = document.body.innerHTML.replace(/ESCAPED_DOLLAR/g, "$");
     });
   </script>
 </head>
@@ -53,7 +68,8 @@
     <div class="contents">
       <div class="markdown-heading"><h1 class="heading-element">表示テスト用</h1><a id="user-content-表示テスト用" class="anchor" aria-label="Permalink: 表示テスト用" href="#表示テスト用"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li><a href="test/latex.html">$\LaTeX$ test</a></li>
+<li><a href="test/simple-latex.html">$\KaTeX$ simple test</a></li>
+<li><a href="test/latex.html">$\KaTeX$ test</a></li>
 <li><a href="test/test.html">markdown test</a></li>
 <li><a href="test/alert.html">alert test</a></li>
 </ul>

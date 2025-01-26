@@ -27,8 +27,23 @@
         delimiters: [
           { left: "$$", right: "$$", display: true },
           { left: "$", right: "$", display: false },
-        ]
+        ],
+        ignoredTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ],
+        preProcess: function (text) {
+          // \$ を通貨記号として扱うためにエスケープされたものを置換
+          return text.replace(/\\\$/g, "ESCAPED_DOLLAR");
+        },
       });
+
+      // 通貨記号用に一時的に置換したテキストを元に戻す
+      document.body.innerHTML = document.body.innerHTML.replace(/ESCAPED_DOLLAR/g, "$");
     });
   </script>
 </head>
@@ -456,7 +471,7 @@ datahere */
 datahere</pre></div>
 <hr>
 <div class="markdown-heading"><h1 class="heading-element">Tables</h1><a id="user-content-tables" class="anchor" aria-label="Permalink: Tables" href="#tables"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>Colons can be used to align columns.
+<pre>`Colons can be used to align columns.
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|

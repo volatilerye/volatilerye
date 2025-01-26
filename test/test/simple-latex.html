@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+    integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+    integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+    crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  <link rel="stylesheet" href="../../style.css">
+  <title>regex error!</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+        ],
+        ignoredTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ],
+        preProcess: function (text) {
+          // \$ を通貨記号として扱うためにエスケープされたものを置換
+          return text.replace(/\\\$/g, "ESCAPED_DOLLAR");
+        },
+      });
+
+      // 通貨記号用に一時的に置換したテキストを元に戻す
+      document.body.innerHTML = document.body.innerHTML.replace(/ESCAPED_DOLLAR/g, "$");
+    });
+  </script>
+</head>
+
+<body>
+  <div class="side">
+    <div class="toc">
+      <a href="../../index.html"><img src="../../restio.png" , alt="volatile rye."></a>
+      regex error!
+    </div>
+  </div>
+  <div class="main">
+    <div class="filepath">
+      <div class="item-back"><a href="../test.html">☜ back</a></div>
+      <div class="item-info">regex error!</div>
+    </div>
+    <div class="contents">
+      <div class="markdown-heading"><h1 class="heading-element">Simple $\KaTeX$</h1><a id="user-content-simple-katex" class="anchor" aria-label="Permalink: Simple $\KaTeX$" href="#simple-katex"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>$$
+\maltese\degree\pounds\$\minuso
+\text{\maltese\degree\pounds\textdollar}
+$$</p>
+<p>$\frac{a}{b}\text{c~ {ab} \ e}+fg$</p>
+<p>$$
+\begin{array}{l}
+\texttt{12345678901234} \\
+\texttt{A test  1~~2\ \ 3} \\
+\verb|A test 1  2  3|
+\end{array}
+$$</p>
+<p>$$
+\begin{matrix}
+\textsf{abc123 \textbf{abc123} \textit{abc123}}\\
+\text{abc123 \textbf{abc123} \textit{abc123}}\\
+\textrm{abc123 \textbf{abc123} \textit{abc123}}\\
+\textsf{\textrm{\textbf{abc123}} \textbf{abc123} \textit{abc123}}\\
+\textit{abc123 \textbf{abc123} \textsf{abc123}}\\
+\end{matrix}
+$$</p>
+<p>$$
+\begin{matrix}
+\text{for $a &lt; b$ and $ c &lt; d $}. \\
+\textsf{for $a &lt; b$ and $ c &lt; d $}. \\
+\textsf{for $a &lt; b \textbf{ and } c &lt; d $} \\
+\text{\sf for $a &lt; b$ and $c &lt; d$.}
+\end{matrix}
+$$
+$\begin{matrix}\text{ÀàÇçÉéÏïÖöÛû} \\ \text{БГДЖЗЙЛФЦШЫЮЯ} \\ \text{여보세요} \\ \text{私はバナナです} \end{matrix}$</p>
+<p>$$
+\begin{array}{ll}
+\mathrm H\kern 1em\mathrm H \text{\tiny (1em)}
+& \mathrm H\kern 1ex\mathrm H \text{\tiny (1ex)} \\
+\mathrm H{\scriptstyle \kern 1em}\mathrm H \text{\tiny (ss 1em)}
+& \mathrm H{\scriptstyle \kern 1ex}\mathrm H \text{\tiny (ss 1ex)} \\
+\mathrm H{\small \kern 1em}\mathrm H \text{\tiny (sm 1em)}
+& \mathrm H{\small \kern 1ex}\mathrm H \text{\tiny (sm 1ex)} \\
+\mathrm H\mkern 18mu\mathrm H \text{\tiny (18mu)}
+& \mathrm H\kern 1cm\mathrm H \text{\tiny (1cm)} \\
+\mathrm H{\scriptstyle \mkern 18mu}\mathrm H \text{\tiny (ss 18mu)}
+& \mathrm H{\scriptstyle \kern 1cm}\mathrm H \text{\tiny (ss 1cm)} \\
+\mathrm H{\small \mkern 18mu}\mathrm H \text{\tiny (sm 18mu)}
+& \mathrm H{\small \kern 1cm}\mathrm H \text{\tiny (sm 1cm)}
+\end{array}
+$$</p>
+<p>$\err\,\frac\fracerr3\,2^\superr_\suberr\,\sqrt\sqrterr$</p>
+<p>$$
+\begin{array}{ll}
+\verb \verb ,   & \verb|\verb  |, \\
+\verb* \verb* , & \verb*|\verb* |, \\
+\verb! & ! & \scriptstyle\verb|ss verb| \\
+\verb*! & ! & \small\verb|sm verb| \\
+\verb|``---''~|
+\end{array}
+$$</p>
+<p>$potato<br>blah$</p>
+<p>$x^{\Huge y}z$</p>
+<p>$<br>moo$</p>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

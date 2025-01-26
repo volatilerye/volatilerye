@@ -1,3 +1,6 @@
+# TODO:
+# コードクッソ汚いのでいつか直しておきたい
+
 import markdown
 import os
 import re
@@ -32,13 +35,13 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(default_markers)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
     def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s*</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
@@ -51,13 +54,13 @@ def parse_markdown_to_alert(md: str) -> str:
         title = (
             default_titles.get(marker, capitalize(marker)) if content == "" else content
         )  # タイトル
-        text = match.group(6).strip()
-        print(marker)
+        comment = match.group(6).strip()
+
         return "\n".join(
             [
                 f'<div class="{class_prefix} {class_prefix}-{marker}">'
                 f'<p class="{class_prefix}-title">{icon}{title}</p>'
-                f"<p>{text}</p>"
+                f"<p>{comment}</p>"
                 f"</div>"
             ]
         )
@@ -74,16 +77,54 @@ def convert_markdown_to_html(markdown_text):
         "Content-Type": "application/json",
         "Authorization": TOKEN,
     }
-    data = {"text": markdown_text, "mode": "markdown"}
 
+    def replace_latex_sign_before_convert_to_html(match: re.Match) -> str:
+        return (
+            match.group(1)
+            + re.sub(r"\\([!\"#$%&'()*+,\-.\/:;<=>?@[\\\]^`{|}~])", r"\\\\\1", match.group(2))
+            + match.group(1)
+        )
+
+    markdown_text = re.sub(
+        r"(?<!\\)(\${1,2})(.+?)(?<!\\)\1",
+        replace_latex_sign_before_convert_to_html,
+        markdown_text,
+        flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
+    )
+
+    data = {"text": markdown_text, "mode": "markdown"}
     response = requests.post(url, json=data, headers=headers)
     text = response.text
-    try:
-        # text = re.sub(r'[#%&_~\{\}]', r'\\\0', text)
-        text = re.sub(r"\\", r"\\\\", text)
-        return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
-    except:
-        return "<h1>Regex Error!</h1>\n"
+    if markdown_text.find("Simple") > 0:
+        print(f'\u001b[32m{markdown_text}', f'\u001b[33m{text}\u001b[0m')
+    text = re.sub(r"\\(?![\{\}\[\]])", r"\\\\", text)
+    text = re.sub(r"\\([\[\]])", r"\\\\\\\1", text)
+    if markdown_text.find("Simple") > 0:
+        print(f'\u001b[34m{text}\u001b[0m')
+
+    # 誤変換されてしまうものを修正
+    def replace_latex_sign(match: re.Match) -> str:
+        return (
+            match.group(0)
+            .replace("&amp;", "&")
+            .replace("<em>", "_")
+            .replace("<code>", "`")
+            .replace("</code>", "`")
+            .replace("<del>", "~")
+            .replace("</del>", "~")
+            .replace(r"\\<br>", "\\\\\\\\")
+        )
+
+    text = re.sub(
+        r"(?<!\\)(\${1,2})(.+?)(?<!\\)\1",
+        replace_latex_sign,
+        text,
+        flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
+    )
+    if markdown_text.find("Simple") > 0:
+        print(f'\u001b[35m{text}\u001b[0m')
+    
+    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
 
 
 def generate_html_file(md_path: str):
@@ -107,7 +148,6 @@ def generate_html_file(md_path: str):
         os.makedirs(os.path.dirname(html_path), exist_ok=True)
 
     with open(html_path, "w") as f:
-        print(toc)
         try:
             html_text = re.sub("{toc}", toc, template_html)
         except:
@@ -118,14 +158,10 @@ def generate_html_file(md_path: str):
             html_text = re.sub(
                 "{title}",
                 md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled",
-                html_text
+                html_text,
             )
         except:
-            html_text = re.sub(
-                "{title}",
-                f"regex error!",
-                html_text
-            )
+            html_text = re.sub("{title}", f"regex error!", html_text)
         html_text = re.sub("{directory}", "../" * (md_path.count("/") - 1), html_text)
         html_text = re.sub("{filepath}", md_path, html_text)
         md_dir_list = md_path.split("/")
@@ -171,5 +207,5 @@ def generate_html_file(md_path: str):
             html_text = re.sub("{contents_info}", contents_info, html_text)
         except:
             html_text = re.sub("{contents_info}", "regex error!", html_text)
-        
+
         f.write(html_text)
