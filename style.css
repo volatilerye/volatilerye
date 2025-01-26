@@ -1227,6 +1227,14 @@ body .markdown-alert.markdown-alert-caution .markdown-alert-title {
   color: var(--fgColor-danger);
 }
 
+body .markdown-alert.markdown-alert-default {
+  border-left-color: var(--borderColor-default);
+}
+
+body .markdown-alert.markdown-alert-default .markdown-alert-title {
+  color: var(--fgColor-default);
+}
+
 body>*:first-child>.heading-element:first-child {
   margin-top: 0 !important;
 }

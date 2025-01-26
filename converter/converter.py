@@ -14,9 +14,60 @@ DEFAULT_GITHUB_ICONS = {
     "caution": '<svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>',
 }
 
+MATHEMATIC_SUMMARIZE_ICONS = {
+    "default": "",
+    "theorem,": DEFAULT_GITHUB_ICONS["important"],
+    "lemma": DEFAULT_GITHUB_ICONS["important"],
+    "corollary": DEFAULT_GITHUB_ICONS["important"],
+    "proposition": DEFAULT_GITHUB_ICONS["important"],
+    "definition": DEFAULT_GITHUB_ICONS["note"],
+    "example": DEFAULT_GITHUB_ICONS["tip"],
+    "exercise": DEFAULT_GITHUB_ICONS["tip"],
+    "remark": DEFAULT_GITHUB_ICONS["caution"],
+    "note": DEFAULT_GITHUB_ICONS["warning"],
+    "case": DEFAULT_GITHUB_ICONS["note"],
+}
+
 # デフォルトの設定
-default_markers = ["TIP", "NOTE", "IMPORTANT", "WARNING", "CAUTION"]
-default_titles = {}
+markers_list = list((DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS).keys())
+marker_replace_dict = {
+    "note": "note",
+    "tip": "tip",
+    "important": "important",
+    "warning": "warning",
+    "caution": "caution",
+    "default": "default",
+    "theorem,": "caution",
+    "lemma": "tip",
+    "corollary": "tip",
+    "proposition": "warning",
+    "definition": "caution",
+    "example": "note",
+    "exercise": "default",
+    "remark": "important",
+    "note": "important",
+    "case": "note",
+}
+
+icons_dict = DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS
+default_titles = {
+    "note": "Note",
+    "tip": "Tip",
+    "important": "Important",
+    "warning": "Warning",
+    "caution": "Caution",
+    "default": "",
+    "theorem,": "定理",
+    "lemma": "補題",
+    "corollary": "系",
+    "proposition": "命題",
+    "definition": "定義",
+    "example": "例",
+    "exercise": "演習",
+    "remark": "注意",
+    "note": "注意",
+    "case": "例", 
+}
 class_prefix = "markdown-alert"
 
 
@@ -33,29 +84,27 @@ def parse_markdown_to_alert(md: str) -> str:
     :return: HTML文字列
     """
     # 正規表現の準備
-    marker_name_re = "|".join(default_markers)
+    marker_name_re = "|".join(markers_list)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
     def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})(\s(.+))?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
         marker = match.group(1).lower()  # マーカー名（小文字化）
-        emoji = match.group(3)  # emoji-icon
-        icon = (
-            DEFAULT_GITHUB_ICONS.get(marker, "") if emoji is None else emoji
-        )  # アイコン
-        content = match.group(4).strip()  # アラートの内容
+        icon = icons_dict[marker] # アイコン
+        content = match.group(2).strip()  # アラートの内容
         title = (
-            default_titles.get(marker, capitalize(marker)) if content == "" else content
+            default_titles[marker] if content == "" else content
         )  # タイトル
-        comment = match.group(6).strip()
-
+        comment = match.group(4).strip()
+        marker = marker_replace_dict[marker]
+        
         return "\n".join(
             [
                 f'<div class="{class_prefix} {class_prefix}-{marker}">'
@@ -72,7 +121,9 @@ def replace_latex_sign_before_convert_to_html(markdown_text: re.Match) -> str:
     def replace_func(match: re.Match) -> str:
         return (
             match.group(1)
-            + re.sub(r"\\([!\"#$%&'()*+,\-.\/:;<=>?@[\\\]^`{|}~])", r"\\\\\1", match.group(2))
+            + re.sub(
+                r"\\([!\"#$%&'()*+,\-.\/:;<=>?@[\\\]^`{|}~])", r"\\\\\1", match.group(2)
+            )
             + match.group(1)
         )
 
@@ -82,7 +133,8 @@ def replace_latex_sign_before_convert_to_html(markdown_text: re.Match) -> str:
         markdown_text,
         flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
-    
+
+
 def fix_html_for_latex(html_text: str) -> str:
     text = html_text
     text = re.sub(r"\\(?![\{\}\[\]])", r"\\\\", text)
@@ -107,9 +159,9 @@ def fix_html_for_latex(html_text: str) -> str:
         text,
         flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
-    
-    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)    
-    
+
+    return re.sub(r'<a href="(.+?)\.md">', r'<a href="\1.html">', text)
+
 
 def convert_markdown_to_html(markdown_text):
     with open("converter/.env", "r") as f:
@@ -140,7 +192,7 @@ def generate_html_file(md_path: str):
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
         toc = md.toc
-        toc = re.sub("\"#", "\"#user-content-", toc)
+        toc = re.sub('"#', '"#user-content-', toc)
 
     main_text = convert_markdown_to_html(markdown_text)
     main_text = parse_markdown_to_alert(main_text)
@@ -157,21 +209,26 @@ def generate_html_file(md_path: str):
             html_text = re.sub(":toc:", fix_html_for_latex(toc), template_html)
         except Exception as e:
             html_text = re.sub(":toc:", f"regex error!", template_html)
-            print(f'toc: \u001b[32m{fix_html_for_latex(toc)}\u001b[0m')
+            print(f"toc: \u001b[32m{fix_html_for_latex(toc)}\u001b[0m")
             print(e)
         html_text = re.sub(":main:", rf"{main_text}", html_text)
         try:
             html_text = re.sub(
                 ":title:",
-                fix_html_for_latex(md.toc_tokens[0]["name"])
-                if len(md.toc_tokens) > 0 else "untitled",
+                (
+                    fix_html_for_latex(md.toc_tokens[0]["name"])
+                    if len(md.toc_tokens) > 0
+                    else "untitled"
+                ),
                 html_text,
             )
         except Exception as e:
             html_text = re.sub(":title:", f"regex error!", html_text)
-            print(f'title: \u001b[33m{fix_html_for_latex(md.toc_tokens[0]["name"])}\u001b[0m')
+            print(
+                f'title: \u001b[33m{fix_html_for_latex(md.toc_tokens[0]["name"])}\u001b[0m'
+            )
             print(e)
-            
+
         # html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
         html_text = re.sub(":filepath:", md_path, html_text)
         md_dir_list = md_path.split("/")
@@ -214,10 +271,12 @@ def generate_html_file(md_path: str):
                     contents_info += f'<a href="{"../" * (dir_depth - i + 1)}{md_dir_list[len(md_dir_list)-2]}.html">{info}</a> / '
 
         try:
-            html_text = re.sub(":contents_info:", fix_html_for_latex(contents_info), html_text)
+            html_text = re.sub(
+                ":contents_info:", fix_html_for_latex(contents_info), html_text
+            )
         except Exception as e:
             html_text = re.sub(":contents_info:", "regex error!", html_text)
-            print(f'info: \u001b[34m{fix_html_for_latex(contents_info)}\u001b[0m')
+            print(f"info: \u001b[34m{fix_html_for_latex(contents_info)}\u001b[0m")
             print(e)
 
         f.write(html_text)

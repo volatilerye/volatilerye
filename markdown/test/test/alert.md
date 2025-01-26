@@ -19,6 +19,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaa
 > [!CAUTION]
 > Negative potential consequences of an action.
 
+> default.
+> 
 
 ## optional name
 
