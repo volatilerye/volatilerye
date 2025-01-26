@@ -136,12 +136,19 @@ def generate_html_file(md_path: str):
         temp_markdown_text = re.sub(
             "```(.+?)```", "", markdown_text, flags=re.MULTILINE | re.DOTALL
         )
+
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
-        toc = fix_html_for_latex(md.toc)
-        toc = re.sub("#", "#user-content-", toc)
-        main_text = convert_markdown_to_html(markdown_text)
-        main_text = parse_markdown_to_alert(main_text)
+        toc = md.toc
+        toc = re.sub("\"#", "\"#user-content-", toc)
+        
+        if markdown_text.find("位相空間") > 0:
+            print(f'\u001b[32m{markdown_text}\u001b[0m')
+            print(f'\u001b[33m{toc}\u001b[0m')
+            # print(f'\u001b[33m{fix_html_for_latex(toc)}\u001b[0m')
+
+    main_text = convert_markdown_to_html(markdown_text)
+    main_text = parse_markdown_to_alert(main_text)
 
     with open("converter/template.html", "r") as f:
         template_html = f.read()
@@ -152,10 +159,10 @@ def generate_html_file(md_path: str):
 
     with open(html_path, "w") as f:
         try:
-            html_text = re.sub(":toc:", toc, template_html)
+            html_text = re.sub(":toc:", fix_html_for_latex(toc), template_html)
         except Exception as e:
             html_text = re.sub(":toc:", f"regex error!", template_html)
-            print(f'toc: \u001b[32m{toc}\u001b[0m')
+            print(f'toc: \u001b[32m{fix_html_for_latex(toc)}\u001b[0m')
             print(e)
         html_text = re.sub(":main:", rf"{main_text}", html_text)
         try:
