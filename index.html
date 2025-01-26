@@ -26,7 +26,7 @@
     onload="renderMathInElement(document.body);"></script>
 
   <link rel="stylesheet" href="https://volatilerye.github.io/mathematics/style.css">
-  <title>volatile rye's mathematics note.</title>
+  <title>volatile rye.</title>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -75,8 +75,9 @@
         <h3>table of contents:</h3>
             <div class="toc">
 <ul>
-<li><a href="#user-content-volatile-ryes-mathematics-note">volatile rye's mathematics note.</a><ul>
+<li><a href="#user-content-volatile-rye">volatile rye.</a><ul>
 <li><a href="#user-content-07734-hello">07734 / hELLO</a></li>
+<li><a href="#user-content-_1">テスト用</a></li>
 <li><a href="#user-content-contents">contents</a><ul>
 <li><a href="#user-content-analysis">解析学 (analysis)</a></li>
 <li><a href="#user-content-statistics">統計学 (statistics)</a></li>
@@ -87,6 +88,7 @@
 <li><a href="#user-content-logic-theory">論理学 (logic theory)</a></li>
 </ul>
 </li>
+<li><a href="#user-content-_2">このサイトについて</a></li>
 </ul>
 </li>
 </ul>
@@ -101,13 +103,18 @@
       <div class="item-info">/ index</div>
     </div>
     <div class="contents">
-      <div class="markdown-heading"><h1 class="heading-element">volatile rye's mathematics note.</h1><a id="user-content-volatile-ryes-mathematics-note" class="anchor" aria-label="Permalink: volatile rye's mathematics note." href="#volatile-ryes-mathematics-note"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+      <div class="markdown-heading"><h1 class="heading-element">volatile rye.</h1><a id="user-content-volatile-rye" class="anchor" aria-label="Permalink: volatile rye." href="#volatile-rye"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a target="_blank" rel="noopener noreferrer" href="restio.png"><img src="restio.png" alt="restio" style="max-width: 100%;"></a></p>
 <div class="markdown-heading"><h2 class="heading-element">07734 / hELLO</h2><a id="user-content-07734--hello" class="anchor" aria-label="Permalink: 07734 / hELLO" href="#07734--hello"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>ここは volatile rye （ボラティル ライ） が数学に関することを復習を兼ねてまとめていく為だけのサイトです.</p>
 <p>まだ作ったばっかりなのでなんにもないよ．</p>
 <p>不定期に更新予定ですので, 忘れた頃にまた見に来てくださいね.</p>
-
+<hr>
+<div class="markdown-heading"><h2 class="heading-element">テスト用</h2><a id="user-content-テスト用" class="anchor" aria-label="Permalink: テスト用" href="#テスト用"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>デバッグ用.</p>
+<ul>
+<li><a href="test/test.html">テスト</a></li>
+</ul>
 <hr>
 <div class="markdown-heading"><h2 class="heading-element">contents</h2><a id="user-content-contents" class="anchor" aria-label="Permalink: contents" href="#contents"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>(まだ準備中．．．．．．)</p>
@@ -138,6 +145,23 @@
 <div class="markdown-heading"><h3 class="heading-element">論理学 (logic theory)</h3><a id="user-content-論理学-logic-theory" class="anchor" aria-label="Permalink: 論理学 (logic theory)" href="#論理学-logic-theory"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>(準備中)</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">このサイトについて</h2><a id="user-content-このサイトについて" class="anchor" aria-label="Permalink: このサイトについて" href="#このサイトについて"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>次の条件を満たすようなWebサービスが中々欲しかったため, サイトを自作しました.</p>
+<ul>
+<li>GFM (GitHub Flacored Markdown) 準拠の Markdown 記法に対応</li>
+<li>$\LaTeX$ に対応 （数学中心の記事を多く書くので必須）</li>
+<li>css カスタマイズ可 (なるべく Github に近い見た目にしたかった)</li>
+<li>ファイルのバージョン管理が可能</li>
+<li>無料で運営できる (GitHub Pages を利用)</li>
+</ul>
+<p>(あと自作したかったというのもある...)</p>
+<ul>
+<li>css は <a href="https://github.com/sindresorhus/github-markdown-css">github-markdown-css</a> のコードを流用</li>
+<li>Markdown → HTML の変換は Github の <a href="https://docs.github.com/en/rest/markdown">Rest API</a> に request を送り変換</li>
+<li>$\LaTeX$ を正常にレンダリングできるような converter を実装</li>
+<li>[GitHub Flavored Markdown] に独自実装したアラート記法（定義・定理等のブロック）を追加</li>
+<li>$\LaTeX$ のレンダリングには <a href="https://katex.org/" rel="nofollow">$\KaTeX$</a> を利用</li>
 </ul>
 
     </div>
