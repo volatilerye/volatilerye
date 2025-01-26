@@ -141,11 +141,6 @@ def generate_html_file(md_path: str):
         md.convert(temp_markdown_text)
         toc = md.toc
         toc = re.sub("\"#", "\"#user-content-", toc)
-        
-        if markdown_text.find("位相空間") > 0:
-            print(f'\u001b[32m{markdown_text}\u001b[0m')
-            print(f'\u001b[33m{toc}\u001b[0m')
-            # print(f'\u001b[33m{fix_html_for_latex(toc)}\u001b[0m')
 
     main_text = convert_markdown_to_html(markdown_text)
     main_text = parse_markdown_to_alert(main_text)
