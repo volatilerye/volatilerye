@@ -588,8 +588,6 @@ $$
     \end{array}
 $$
 
-$\err\,\frac\fracerr3\,2^\superr_\suberr\,\sqrt\sqrterr$
-
 $$
     \begin{array}{ll}
       \verb \verb ,   & \verb|\verb  |, \\

@@ -138,7 +138,7 @@ def replace_latex_sign_before_convert_to_html(markdown_text: re.Match) -> str:
 def fix_html_for_latex(html_text: str) -> str:
     text = html_text
     text = re.sub(r"\\(?![\{\}\[\]])", r"\\\\", text)
-    text = re.sub(r"\\([\[\]])", r"\\\\\\\1", text)
+    text = re.sub(r"\\([\[\]])", r"\\\\\1", text)
 
     # 誤変換されてしまうものを修正
     def replace_latex_sign(match: re.Match) -> str:
@@ -229,7 +229,7 @@ def generate_html_file(md_path: str):
             )
             print(e)
 
-        # html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
+        html_text = re.sub(":directory:", "../" * (md_path.count("/") - 1), html_text)
         html_text = re.sub(":filepath:", md_path, html_text)
         md_dir_list = md_path.split("/")
         if len(md_dir_list) > 3:
