@@ -36,7 +36,7 @@
 > $a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.
 > 1. $$a^mb^n = a^{m+n}.$$
 > 2. $$(a^m)^n = a^{mn}.$$
-> 3. $$(ab)^n = a^nb^n$$
+> 3. $$(ab)^n = a^nb^n.$$
 
 > [!PROOF]  
 > **1.**  
@@ -65,8 +65,8 @@
 > $b$ を **0でない実数**, $n$ を **整数** としたとき, $b^n$ は次のように定義される.
 > $$
 > \begin{cases}
->   b & \text{if\quad$n=1$}, \\
->   b^{n-1} \times b & \text{if\quad$n>1$}, \\
+>   1 & \text{if\quad$n=0$}, \\
+>   b^{n-1} \times b & \text{if\quad$n>0$}, \\
 >   \dfrac{1}{b^n} & \text{otherwise.}
 > \end{cases}
 > $$
@@ -96,7 +96,7 @@ $$
 > $a, b$ を0でない実数, $m,n$ を整数としたとき, 次が成立する.
 > 1. $$a^mb^n = a^{m+n}.$$
 > 2. $$(a^m)^n = a^{mn}.$$
-> 3. $$(ab)^n = a^nb^n$$
+> 3. $$(ab)^n = a^nb^n.$$
 
 > [!EXERCISE]
 > 定理5を証明せよ.
