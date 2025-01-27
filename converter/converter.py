@@ -16,7 +16,7 @@ DEFAULT_GITHUB_ICONS = {
 
 MATHEMATIC_SUMMARIZE_ICONS = {
     "default": "",
-    "theorem,": DEFAULT_GITHUB_ICONS["important"],
+    "theorem": DEFAULT_GITHUB_ICONS["important"],
     "lemma": DEFAULT_GITHUB_ICONS["important"],
     "corollary": DEFAULT_GITHUB_ICONS["important"],
     "proposition": DEFAULT_GITHUB_ICONS["important"],
@@ -26,6 +26,7 @@ MATHEMATIC_SUMMARIZE_ICONS = {
     "remark": DEFAULT_GITHUB_ICONS["caution"],
     "note": DEFAULT_GITHUB_ICONS["note"],
     "case": DEFAULT_GITHUB_ICONS["note"],
+    "proof": "",
 }
 
 # デフォルトの設定
@@ -37,7 +38,7 @@ marker_replace_dict = {
     "warning": "warning",
     "caution": "caution",
     "default": "default",
-    "theorem,": "caution",
+    "theorem": "warning",
     "lemma": "tip",
     "corollary": "tip",
     "proposition": "warning",
@@ -45,8 +46,9 @@ marker_replace_dict = {
     "example": "note",
     "exercise": "default",
     "remark": "important",
-    "note": "tip",
+    "note": "important",
     "case": "note",
+    "proof": "default"
 }
 
 icons_dict = DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS
@@ -57,7 +59,7 @@ default_titles = {
     "warning": "Warning",
     "caution": "Caution",
     "default": "",
-    "theorem,": "Theorem",
+    "theorem": "Theorem",
     "lemma": "Lemma",
     "corollary": "Corollary",
     "proposition": "Proposition",
@@ -67,6 +69,7 @@ default_titles = {
     "remark": "Remark",
     "note": "Note",
     "case": "Case", 
+    "proof": "Proof",
 }
 class_prefix = "markdown-alert"
 

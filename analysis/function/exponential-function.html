@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="volatile rye">
+  <meta property="og:description" content="volatile rye's mathematics note.">
+  <meta property="og:image" content="https://volatilerye.github.io/mathematics/restio.png">
+  <meta property="og:url" content="https://volatilerye.github.io/mathematics/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="volatile rye.">
+  <link rel="icon" href="../../restio.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+    integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+    integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+    crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  <link rel="stylesheet" href="../../style.css">
+  <title>指数関数・べき関数とその考察</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+        ],
+        ignoredTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ],
+        preProcess: function (text) {
+          // \$ を通貨記号として扱うためにエスケープされたものを置換
+          return text.replace(/\\\$/g, "ESCAPED_DOLLAR");
+        },
+      });
+
+      // 通貨記号用に一時的に置換したテキストを元に戻す
+      document.body.innerHTML = document.body.innerHTML.replace(/ESCAPED_DOLLAR/g, "$");
+    });
+  </script>
+</head>
+
+<body>
+  <div class="side">
+    <div class="toc">
+      <div>
+        <a href="../../index.html"><img src="../../restio.png" , alt="volatile rye."></a>
+      </div>
+      <div>
+        <h3>search in the site:</h3>
+        <div class="markdown-alert markdown-alert-warning">
+          <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1"
+              width="16" height="16" aria-hidden="true">
+              <path
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
+              </path>
+            </svg>Remark</p>
+          <p>サイト内検索の機能はまだ機能していません！ごめんね</p>
+        </div>
+        <form action="https://www.google.com/search" method=get>
+          <input type="hidden" name="hl" value="ja">
+          <input type="hidden" name="sitesearch" value="https://volatilerye.github.io/mathematics">
+          <input type="textbox" name="q" size="18" maxLength="255">
+          <input type="submit" name="btnG" value="search">
+        </form>
+      </div>
+      <div>
+        <h3>table of contents:</h3>
+        <div class="toc">
+<ul>
+<li><a href="#user-content-_1">指数関数・べき関数とその考察</a><ul>
+<li><a href="#user-content-exponentiation">べき乗 (累乗, exponentiation)</a></li>
+<li><a href="#user-content-_2">負の整数乗</a></li>
+<li><a href="#user-content-_3">有理数乗</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="filepath">
+      <div class="item-back"><a href="../function.html">☜ back</a></div>
+      <div class="item-info">/ <a href=../../index.html>index</a> / <a href="../function.html">関数 (function)</a> / 指数関数・べき関数とその考察</div>
+    </div>
+    <div class="contents">
+      <div class="markdown-heading"><h1 class="heading-element">指数関数・べき関数とその考察</h1><a id="user-content-指数関数べき関数とその考察" class="anchor" aria-label="Permalink: 指数関数・べき関数とその考察" href="#指数関数べき関数とその考察"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>指数関数・べき関数は高校数学でも取り扱われるが, その厳密な定義は意外にも教わることはない.
+この記事ではより厳密に議論するために <strong>べき乗</strong> から始め, 最終的には複素関数にまで拡張することを目標に議論する.</p>
+<div class="markdown-heading"><h2 class="heading-element">べき乗 (累乗, exponentiation)</h2><a id="user-content-べき乗-累乗-exponentiation" class="anchor" aria-label="Permalink: べき乗 (累乗, exponentiation)" href="#べき乗-累乗-exponentiation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 1  べき乗 (基本)</p><p>$b$ を実数, $n$ を正の整数 としたとき, <strong>べき乗 (累乗, exponentiation)</strong> $b^n$ は次のように定義される. ($b^n$ は $b$ の $n$ 乗という.)
+$$
+\begin{cases}
+b & \text{if\quad$n=1$}, \\
+b^{n-1} \times b & \text{otherwise}.
+\end{cases}
+$$
+このとき, $b$ を <strong>底 (基数, base)</strong>, $n$ を <strong>指数 (べき数, exponent)</strong> という.</p></p></div>
+<p>すなわち, $b^n = \underbrace{b\times b\times\dots\times b\,}_{n\text{ times}}$ というように $b$ を $n$ 個掛けたものを $b^n$ と定義している.</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Remark</p><p>括弧を用いず $a^{b^c}$ と書いた場合, $a^{(b^c)} のように右側から計算するのが一般的である. (右結合性)</p></p></div>
+<p>次の命題は $n=1$ のときのべき乗の定義より明らかである.</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 2  $b$ の1乗</p><p>$b$ を実数としたとき, $b^1=1$ である.</p></p></div>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>ここでは実数体 (実数と四則演算で構成された体系) を前提に定義しているが, 定義1はより一般化した群にも同じように定義できる. また, 群の結合律によって定義1が well-defined であることが保証されている.</p>
+<p>ただし, 以降の定理3から一般の体系では成立しない法則も存在するので注意.</p></p></div>
+<p>べき乗は次の <strong>指数法則</strong> が成立する.</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 3  指数法則</p><p>$a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.</p>
+<ol>
+<li>$$a^mb^n = a^{m+n}.$$</li>
+<li>$$(a^m)^n = a^{mn}.$$</li>
+<li>$$(ab)^n = a^nb^n$$</li>
+</ol></p></div>
+<div class="markdown-alert markdown-alert-default"><p class="markdown-alert-title">Proof</p><p><strong>1.</strong><br>
+$n=1$ のときは定義より明らか. $n=k$ のとき成立すると仮定すると,
+$$a^ma^{k+1}=a^m(a^ka)=(a^ma^k)a=a^{m+k}a=a^{m+(k+1)}$$
+であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p>
+<p><strong>2.</strong><br>
+$n=1$ のときは明らか. $n=k$ のとき成立すると仮定すると, 1の法則を用いて
+$$(a^m)^{k+1}=(a^m)^ka^m=a^{mk}a^m=a^{mk+m}=a^{m(k+1)}$$
+であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p>
+<p><strong>3.</strong><br>
+$n=1$ のときは明らか. $n=k$ のとき成立すると仮定すると, 1の法則を用いて
+$$(ab)^{k+1}=(ab)^kab=a^kb^kab=a^kab^kb=a^{k+1}b^{k+1}$$
+であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p></p></div>
+<div class="markdown-heading"><h2 class="heading-element">負の整数乗</h2><a id="user-content-負の整数乗" class="anchor" aria-label="Permalink: 負の整数乗" href="#負の整数乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>先ほどの定義は $b$ を $n$ 個掛けるという直感的に分かりやすい定義から始めたが, $n$ を <strong>正の整数</strong> に限定しているため, <strong>0乗</strong> や <strong>負の整数</strong> へ拡張することができない.</p>
+<p>そこで, 発想を逆転させて <strong>べき乗の定義から得られた指数法則を定義内へ自然に埋め込もう</strong>.</p>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 4  べき乗 (整数)</p><p>$b$ を <strong>0でない実数</strong>, $n$ を <strong>整数</strong> としたとき, $b^n$ は次のように定義される.
+$$
+\begin{cases}
+b & \text{if\quad$n=1$}, \\
+b^{n-1} \times b & \text{if\quad$n&gt;1$}, \\
+\dfrac{1}{b^n} & \text{otherwise.}
+\end{cases}
+$$</p></p></div>
+<p>指数法則 $a^{m+n}=a^ma^n$ の $m,n$ は正の整数としていたが, $m,n$ を整数に拡張することで,
+$$
+a^1a^0 = a^1 \Longrightarrow a^0=\dfrac{a}{a} = 1
+$$
+から, $a^0=1$ と定義できる.</p>
+<p>また,
+$$
+a^na^{-n} = a^0 \Longrightarrow a^{-n} = \dfrac{1}{a^n}
+$$
+とすることで, 負の整数のべき乗を自然に拡張することができた.</p>
+<p>拡張前 (定義1) で定義可能なべき乗は拡張後 (定義4) と一致していることが確認できる.</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Remark  底が 0 のとき</p><p>底が 0 のときは $b^n$ が 0 になる. $n&lt;0$ のときの定義に当てはめると $\dfrac{1}{0}$ となるため, 0 の 整数乗は定義することができない.</p></p></div>
+<div class="markdown-heading"><h2 class="heading-element">有理数乗</h2><a id="user-content-有理数乗" class="anchor" aria-label="Permalink: 有理数乗" href="#有理数乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>只今執筆中...</p></p></div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -3,11 +3,11 @@
 ![restio](restio.png)
 
 
-## 07734 / hELLO
+## hELLO!
 
 ここは volatile rye （ボラティル ライ） が数学に関することを復習を兼ねてまとめていく為だけのサイトです.
 
-まだ作ったばっかりなのでなんにもないよ．
+まだ作ったばっかりなので記事は少な目..．
 
 不定期に更新予定ですので, 忘れた頃にまた見に来てくださいね.
 
@@ -21,10 +21,9 @@
 
 ## contents
 
-(まだ準備中．．．．．．)
-
 ### 解析学 (analysis)
-- (準備中)
+- [関数 (function)](analysis/function.md)
+- 微分積分学 (準備中)
 
 ### 統計学 (statistics)
 - (準備中)
@@ -33,7 +32,7 @@
 - (準備中)
 
 ### 幾何学 (geometry)
-- [位相幾何学](geometry/topology.md)
+- [位相幾何学 (topology)](geometry/topology.md)
 
 ### 代数学 (algebra)
 - (準備中)
@@ -49,7 +48,7 @@
 
 次の条件を満たすようなWebサービスが中々見つからなかったため, サイトを自作しました.
 
-- GFM (GitHub Flacored Markdown) 準拠の Markdown 記法に対応
+- GFM (GitHub Flavored Markdown) 準拠の Markdown 記法+αに対応
 - $\LaTeX$ に対応 （数学中心の記事を多く書くので必須）
 - css カスタマイズ可 (なるべく Github に近い見た目にしたかった)
 - ファイルのバックアップ・バージョン管理が可能
@@ -57,9 +56,17 @@
 
 (あと自作したかったというのもある...)
 
+現在は markdown で書いた記事を Python で HTML に変換してから [リモートリポジトリ](https://github.com/volatilerye/mathematics) へ push することでこのサイトを公開しています.
+
+かなりコードが雑なので, 全く同じ画像ファイルが2つできたりします. 無駄構造.
+
+将来は変換の部分を TypeScript に置き換えて手動で変換する手間を省きたい！
+でも TypeScript 触ってないからよく分からないのよね...  
+
 - css は [github-markdown-css](https://github.com/sindresorhus/github-markdown-css) のコードを流用
 - Markdown → HTML の変換は Github の [Rest API](https://docs.github.com/en/rest/markdown) に request を送り変換
 - $\LaTeX$ を正常にレンダリングできるような converter を実装
-- [GitHub Flavored Markdown] に独自実装したアラート記法（定義・定理等のブロック）を追加
+- GFM に独自実装したアラート記法（定義・定理等のブロック）を追加
 - $\LaTeX$ のレンダリングには [$\KaTeX$](https://katex.org/) を利用
 
+### remote repository
