@@ -23,7 +23,7 @@ MATHEMATIC_SUMMARIZE_ICONS = {
     "definition": DEFAULT_GITHUB_ICONS["important"],
     "example": DEFAULT_GITHUB_ICONS["tip"],
     "exercise": DEFAULT_GITHUB_ICONS["tip"],
-    "remark": DEFAULT_GITHUB_ICONS["caution"],
+    "remark": DEFAULT_GITHUB_ICONS["warning"],
     "note": DEFAULT_GITHUB_ICONS["note"],
     "case": DEFAULT_GITHUB_ICONS["note"],
     "proof": "",
@@ -46,7 +46,7 @@ marker_replace_dict = {
     "example": "note",
     "exercise": "default",
     "remark": "important",
-    "note": "important",
+    "note": "default",
     "case": "note",
     "proof": "default"
 }
