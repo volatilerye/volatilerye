@@ -48,7 +48,7 @@ marker_replace_dict = {
     "remark": "important",
     "note": "default",
     "case": "note",
-    "proof": "default"
+    "proof": "default",
 }
 
 icons_dict = DEFAULT_GITHUB_ICONS | MATHEMATIC_SUMMARIZE_ICONS
@@ -68,7 +68,7 @@ default_titles = {
     "exercise": "Exercise",
     "remark": "Remark",
     "note": "Note",
-    "case": "Case", 
+    "case": "Case",
     "proof": "Proof",
 }
 class_prefix = "markdown-alert"
@@ -100,20 +100,23 @@ def parse_markdown_to_alert(md: str) -> str:
         )
         match = sub_pattern.match(text.group(0))
         marker = match.group(1).lower()  # マーカー名（小文字化）
-        icon = icons_dict[marker] # アイコン
+        icon = icons_dict[marker]  # アイコン
         content = match.group(2).strip()  # アラートの内容
-        title = (
-            default_titles[marker] if content == "" else content
-        )  # タイトル
+        title = default_titles[marker] if content == "" else content  # タイトル
         comment = match.group(4).strip()
-        marker = marker_replace_dict[marker]
-        
+        replaced_marker = marker_replace_dict[marker]
+
         return "\n".join(
             [
-                f'<div class="{class_prefix} {class_prefix}-{marker}">'
-                f'<p class="{class_prefix}-title">{icon}{title}</p>'
-                f"<p>{comment}</p>"
-                f"</div>"
+                f'<div class="{class_prefix} {class_prefix}-{replaced_marker}">',
+                f'<p class="{class_prefix}-title">{icon}{title}</p>',
+                f"<p>{comment}</p>",
+                (
+                    '<div style="text-align: right">$\\\\blacksquare$</div>'
+                    if marker == "proof"
+                    else ""
+                ),
+                "</div>",
             ]
         )
 

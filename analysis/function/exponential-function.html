@@ -70,7 +70,7 @@
                 d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
               </path>
             </svg>Remark</p>
-          <p>サイト内検索の機能はまだ機能していません！ごめんね</p>
+          <p>現在検索が使えるように準備中です！</p>
         </div>
         <form action="https://www.google.com/search" method=get>
           <input type="hidden" name="hl" value="ja">
@@ -88,14 +88,13 @@
                 d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
               </path>
             </svg>Remark</p>
-          <p>現在テーブルのリンクが上手く機能しない場合があります！ごめんね</p>
+          <p>現在はバグでテーブルのリンクが上手く機能しない場合があります！ごめんね</p>
         </div>
         <div class="toc">
 <ul>
 <li><a href="#user-content-_1">指数関数・べき関数とその考察</a><ul>
 <li><a href="#user-content-exponentiation">べき乗 (累乗, exponentiation)</a></li>
 <li><a href="#user-content-_2">負の整数乗</a></li>
-<li><a href="#user-content-_3">有理数乗</a></li>
 </ul>
 </li>
 </ul>
@@ -114,28 +113,59 @@
 <p>指数関数・べき関数は高校数学でも取り扱われるが, その厳密な定義は意外にも教わることはない.
 この記事ではより厳密に議論するために <strong>べき乗</strong> から始め, 最終的には複素関数にまで拡張することを目標に議論する.</p>
 <div class="markdown-heading"><h2 class="heading-element">べき乗 (累乗, exponentiation)</h2><a id="user-content-べき乗-累乗-exponentiation" class="anchor" aria-label="Permalink: べき乗 (累乗, exponentiation)" href="#べき乗-累乗-exponentiation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 1  べき乗 (基本)</p><p>$b$ を実数, $n$ を正の整数 としたとき, <strong>べき乗 (累乗, exponentiation)</strong> $b^n$ は次のように定義される. ($b^n$ は $b$ の $n$ 乗という.)
+<div class="markdown-alert markdown-alert-caution">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 1  べき乗 (基本)</p>
+<p>$b$ を実数, $n$ を正の整数 としたとき, <strong>べき乗 (累乗, exponentiation)</strong> $b^n$ は次のように定義される. ($b^n$ は $b$ の $n$ 乗という.)
 $$
+b^n :=
 \begin{cases}
 b & \text{if\quad$n=1$}, \\
 b^{n-1} \times b & \text{otherwise}.
 \end{cases}
 $$
-このとき, $b$ を <strong>底 (基数, base)</strong>, $n$ を <strong>指数 (べき数, exponent)</strong> という.</p></p></div>
+このとき, $b$ を <strong>底 (基数, base)</strong>, $n$ を <strong>指数 (べき数, exponent)</strong> という.</p></p>
+
+</div>
 <p>すなわち, $b^n = \underbrace{b\times b\times\dots\times b\,}_{n\text{ times}}$ というように $b$ を $n$ 個掛けたものを $b^n$ と定義している.</p>
-<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark</p><p>括弧を用いず $a^{b^c}$ と書いた場合, $a^{(b^c)}$ のように右側から計算するのが一般的である. (右結合性)</p></p></div>
-<p>次の命題は $n=1$ のときのべき乗の定義より明らかである.</p>
-<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 2  $b$ の1乗</p><p>$b$ を実数としたとき, $b^1=b.$</p></p></div>
-<div class="markdown-alert markdown-alert-default"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note. 群との関係性</p><p>ここでは実数体 (実数と四則演算で構成された体系) を前提に定義しているが, 定義1はより一般化した群にも同じように定義できる. また, 群の結合律によって定義1が well-defined であることが保証されている.</p>
-<p>ただし, 以降の定理3から一般の体系では成立しない法則も存在するので注意.</p></p></div>
+<div class="markdown-alert markdown-alert-important">
+<p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark</p>
+<p>括弧を用いず $a^{b^c}$ と書いた場合, $a^{(b^c)}$ のように右側から計算するのが一般的である. (右結合性)</p></p>
+
+</div>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note. 群との関係性</p>
+<p>ここでは実数体 (実数と四則演算で構成された体系) を前提に定義しているが, 定義1はより一般化した群にも同じように定義できる. また, 群の結合律によって定義1が well-defined であることが保証されている.</p>
+<p>ただし, 以降の定理3から一般の体系では成立しない法則も存在するので注意.</p></p>
+
+</div>
+<p>定義から次の命題は明らかであろう.</p>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 2  自明なべき乗</p>
+<p>$b$ を実数, $n$ を正の整数としたとき, 次が成立する.</p>
+<ol>
+<li>$$b^1=b.$$</li>
+<li>$$1^n=1.$$</li>
+<li>$$b^n = 0 \Longleftrightarrow b=0.$$</li>
+</ol></p>
+
+</div>
 <p>べき乗は次の <strong>指数法則</strong> が成立する.</p>
-<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 3  指数法則</p><p>$a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.</p>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 3  指数法則</p>
+<p>$a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.</p>
 <ol>
 <li>$$a^mb^n = a^{m+n}.$$</li>
 <li>$$(a^m)^n = a^{mn}.$$</li>
 <li>$$(ab)^n = a^nb^n.$$</li>
-</ol></p></div>
-<div class="markdown-alert markdown-alert-default"><p class="markdown-alert-title">Proof</p><p><strong>1.</strong><br>
+<li>$$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$</li>
+</ol></p>
+
+</div>
+<details>
+<summary>証明 (クリックで展開)</summary>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title">Proof</p>
+<p><strong>1.</strong><br>
 $n=1$ のときは定義より明らか. $n=k$ のとき成立すると仮定すると,
 $$a^ma^{k+1}=a^m(a^ka)=(a^ma^k)a=a^{m+k}a=a^{m+(k+1)}$$
 であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p>
@@ -146,22 +176,36 @@ $$(a^m)^{k+1}=(a^m)^ka^m=a^{mk}a^m=a^{mk+m}=a^{m(k+1)}$$
 <p><strong>3.</strong><br>
 $n=1$ のときは明らか. $n=k$ のとき成立すると仮定すると, 1の法則を用いて
 $$(ab)^{k+1}=(ab)^kab=a^kb^kab=a^kab^kb=a^{k+1}b^{k+1}$$
-であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p></p></div>
+であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p>
+<p><strong>4.</strong><br>
+法則3より,
+$$
+\left(\dfrac{a}{b}\cdot b\right)^n=\left(\dfrac{a}{b}\right)^nb^n \Longrightarrow a^n = \left(\dfrac{a}{b}\right)^nb^n
+\Longrightarrow \left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.
+$$</p></p>
+<div style="text-align: right">$\blacksquare$</div>
+</div>
+</details>
 <div class="markdown-heading"><h2 class="heading-element">負の整数乗</h2><a id="user-content-負の整数乗" class="anchor" aria-label="Permalink: 負の整数乗" href="#負の整数乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>先ほどの定義は $b$ を $n$ 個掛けるという直感的に分かりやすい定義から始めたが, $n$ を <strong>正の整数</strong> に限定しているため, <strong>0乗</strong> や <strong>負の整数</strong> へ拡張することができない.</p>
 <p>そこで, 発想を逆転させて <strong>べき乗の定義から得られた指数法則を定義内へ自然に埋め込もう</strong>.</p>
-<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 4  べき乗 (整数)</p><p>$b$ を <strong>0でない実数</strong>, $n$ を <strong>整数</strong> としたとき, $b^n$ は次のように定義される.
+<div class="markdown-alert markdown-alert-caution">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 4  べき乗 (整数)</p>
+<p>$b$ を <strong>0でない実数</strong>, $n$ を <strong>整数</strong> としたとき, $b^n$ は次のように定義される.
 $$
+b^n :=
 \begin{cases}
 1 & \text{if\quad$n=0$}, \\
 b^{n-1} \times b & \text{if\quad$n&gt;0$}, \\
 \dfrac{1}{b^n} & \text{otherwise.}
 \end{cases}
-$$</p></p></div>
+$$</p></p>
+
+</div>
 <p>拡張前 (定義1) で定義可能なべき乗は拡張後 (定義4) と一致していることは明らかであろう.</p>
-<p>指数法則 $a^{m+n}=a^ma^n$ の $m,n$ は正の整数としていたが, $m,n$ を整数に拡張することで,
+<p>指数法則 $a^{m+n}=a^ma^n$ の $m,n$ は正の整数としていたが, この $m,n$ の定義域を整数へ拡張することで,
 $$
-a^1a^0 = a^1 \Longrightarrow a^0=\dfrac{a}{a} = 1
+a^na^0 = a^n \Longrightarrow a^0= 1
 $$
 から $a^0=1$ と定義できる.</p>
 <p>また,
@@ -169,18 +213,117 @@ $$
 a^na^{-n} = a^0 \Longrightarrow a^{-n} = \dfrac{1}{a^n}
 $$
 とすることで $n$ を整数全体へ拡張することができる.</p>
-<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark  底が 0 のとき</p><p>ただし底が 0 のときは $n&lt;0$ のときの定義に当てはめると $\dfrac{1}{0}$ となるため, $0^n\;(n\leq0)$は定義することができない.</p></p></div>
-<p>今回の定義の拡張では定理3の法則1のみを利用したが, 残りの指数法則の性質も引き継がれる.
-以降の定義の拡張もこの指数法則を元に底と指数の定義域を拡張していくことに留意しよう.</p>
-<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 5  指数法則</p><p>$a, b$ を0でない実数, $m,n$ を整数としたとき, 次が成立する.</p>
+<div class="markdown-alert markdown-alert-important">
+<p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark  底が 0 のとき</p>
+<p>ただし底が 0 のときは $n&lt;0$ のときの定義に当てはめると $\dfrac{1}{0}$ となるため, $0^n\;(n\leq0)$は定義することができない.</p>
+<p>また, 系3の3番目の命題は成立しなくなることに留意せよ.</p></p>
+
+</div>
+<p>今回の定義の拡張では定理2の法則1のみを利用したが, 残りの指数法則の性質も引き継がれる.
+以降の定義の拡張にも指数法則を元に底と指数の定義域を拡張していくことに留意しよう.</p>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 5  自明なべき乗</p>
+<p>$b$ を0でない実数, $n$ を整数としたとき, 次が成立する.</p>
 <ol>
-<li>$$a^mb^n = a^{m+n}.$$</li>
+<li>$$b^0=1.$$</li>
+<li>$$b^1=b.$$</li>
+<li>$$1^n=1.$$</li>
+<li>$$b^nb^{-n}=1.$$</li>
+<li>$$b^n \neq 0.$$</li>
+</ol></p>
+
+</div>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 6  べき乗同士の除法</p>
+<p>$a$ を0でない実数, $m,n$ を整数としたとき,
+$$\dfrac{a^m}{a^n} = a^{m-n}.$$</p></p>
+
+</div>
+<details>
+<summary>証明 (クリックで展開)</summary>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title">Proof</p>
+<p>$a^{m-n}a^{n}=a^m$ を示せばよい. また, 定義より $a^0 = 1 = \dfrac{1}{a^0}$ に留意せよ.</p>
+<ul>
+<li>$m&gt; n,\;n\ge0$ のとき, 定理3より明らか.</li>
+<li>$m&gt; n,\;n&lt;0$ のとき, 定理3から $a^{m-n}a^{n} = \dfrac{a^{m-n}}{a^{-n}} = \dfrac{a^na^{m-n}}{a^na^{-n}} =a^m$ より成立.</li>
+<li>$m\le n,\;n\ge0$ のとき, 定理3から $a^{m-n}a^{n} = \dfrac{a^{n}}{a^{n-m}} = \dfrac{a^ma^{n}}{a^ma^{n-m}}
+= \dfrac{a^ma^{n}}{a^n} = a^m$ より成立.</li>
+<li>$m\le n,\;n&lt;0$ のとき, 定理3から $a^{m-n}a^{n} = \dfrac{1}{a^{-n}a^{n-m}} = \dfrac{1}{a^m} = a^m$ より成立.</li>
+</ul></p>
+<div style="text-align: right">$\blacksquare$</div>
+</div>
+</details>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Lemma 7  負の整数乗</p>
+<p>$a$ を0でない実数, $n$ を整数としたとき,
+$$(a^n)^{-1} = (a^{-1})^n = a^{-n}.$$</p></p>
+
+</div>
+<details>
+<summary>証明 (クリックで展開)</summary>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title">Proof</p>
+<p>n=0 のときは定義に従って確認すれば良い.</p>
+<ul>
+<li>$n&gt;0$ のとき, $(a^n)^-1=a^{-n}$ は定義4より明らかであり, また定理3から
+$$(a^{-1})^n=\left(\dfrac{1}{a}\right)^n = \dfrac{1^n}{a^n} = \dfrac{1}{a^n} = a^{-n}$$
+より成立する.</li>
+<li>$n&lt;0$ のとき, $n=-m$ とすれば $(a^{-m})^{-1} = (a^{-1})^{-m} = a^m$ を証明することで命題も直ちに示される.
+$$
+\begin{align*}
+(a^{-m})^{-1} &= \left(\dfrac{1}{a^m}\right)^{-1} = \dfrac{1}{\dfrac{1}{a^m}} = a^m, \\
+(a^{-1})^{-m} &= \left(\dfrac{1}{a}\right)^{-m} = \dfrac{1}{\left(\dfrac{1}{a}\right)^m} = \dfrac{1}{\dfrac{1}{a^m}} = a^m.
+\end{align*}
+$$</li>
+</ul></p>
+<div style="text-align: right">$\blacksquare$</div>
+</div>
+</details>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 8  指数法則</p>
+<p>$a, b$ を0でない実数, $m,n$ を整数としたとき, 次が成立する.</p>
+<ol>
+<li>$$a^ma^n = a^{m+n}.$$</li>
 <li>$$(a^m)^n = a^{mn}.$$</li>
 <li>$$(ab)^n = a^nb^n.$$</li>
-</ol></p></div>
-<div class="markdown-alert markdown-alert-default"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Exercise</p><p>定理5を証明せよ.</p></p></div>
-<div class="markdown-heading"><h2 class="heading-element">有理数乗</h2><a id="user-content-有理数乗" class="anchor" aria-label="Permalink: 有理数乗" href="#有理数乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-alert markdown-alert-default"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>只今執筆中...</p></p></div>
+<li>$$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$</li>
+</ol></p>
+
+</div>
+<details>
+<summary>証明 (クリックで展開)</summary>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title">Proof</p>
+<p>定理3より, $m,n$ がともに正の整数でない場合を新たに証明すればよい.</p>
+<p><strong>1.</strong><br>
+命題5の $m$ を $m+n$ に置換すると,
+$$
+\dfrac{a^{m+n}}{a^n} = a^m \Longrightarrow a^ma^n = a^{m+n}.
+$$</p>
+<p><strong>2.</strong><br>
+補題7を用いる.</p>
+<ul>
+<li>$m=0$ または $n=0$ のとき, 系5の法則1より成立する. (各自確認せよ)</li>
+<li>$m&gt;0,\;n&gt;0$ のときは定理3より明らか.</li>
+<li>$m&gt;0,\;n&lt;0$ のとき, $(a^m)^n = (a^m)^{-1\cdot -n} = ((a^m)^{-n})^{-1} = (a^{-mn})^{-1} = a^{mn}.$</li>
+<li>$m&lt;0,\;n&gt;0$ のとき, $(a^m)^n = ((a^{-1})^{-m})^n = ((a^{-m})^{-1})^n = ((a^{-m})^{n})^{-1}= (a^{-mn})^{-1} = a^{mn}.$</li>
+<li>$m&lt;0,\;n&lt;0$ のとき, $(a^m)^n = (((a^{-m})^{-1})^{-n})^{-1} = (((a^{-m})^{-n})^{-1})^{-1} = a^{mn}.$</li>
+</ul>
+<p><strong>3.</strong><br>
+$n\ge0$ のときは系3または系6から明らか.<br>
+$n&lt;0$ のとき,
+$$(ab)^n = \dfrac{1}{(ab)^{-n}} = \dfrac{1}{a^{-n}b^{-n}} = \dfrac{1}{a^{-n}}\dfrac{1}{b^{-n}} = a^nb^n.$$</p>
+<p><strong>4.</strong><br>
+$(ab^{-1})^{n} = a^nb^{-n}$ を示せばよいが, これば法則3より成立する.</p></p>
+<div style="text-align: right">$\blacksquare$</div>
+</div>
+</details>
+<div class="markdown-alert markdown-alert-default">
+<p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>只今執筆中...</p></p>
+
+</div>
 
     </div>
   </div>
