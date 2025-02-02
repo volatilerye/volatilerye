@@ -94,7 +94,8 @@
 <ul>
 <li><a href="#user-content-_1">指数関数・べき関数とその考察</a><ul>
 <li><a href="#user-content-exponentiation">べき乗 (累乗, exponentiation)</a></li>
-<li><a href="#user-content-_2">負の整数乗</a></li>
+<li><a href="#user-content-_2">負の整数の乗</a></li>
+<li><a href="#user-content-_3">有理数のべき乗</a></li>
 </ul>
 </li>
 </ul>
@@ -186,7 +187,7 @@ $$</p></p>
 <div style="text-align: right">$\blacksquare$</div>
 </div>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">負の整数乗</h2><a id="user-content-負の整数乗" class="anchor" aria-label="Permalink: 負の整数乗" href="#負の整数乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">負の整数の乗</h2><a id="user-content-負の整数の乗" class="anchor" aria-label="Permalink: 負の整数の乗" href="#負の整数の乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>先ほどの定義は $b$ を $n$ 個掛けるという直感的に分かりやすい定義から始めたが, $n$ を <strong>正の整数</strong> に限定しているため, <strong>0乗</strong> や <strong>負の整数</strong> へ拡張することができない.</p>
 <p>そこで, 発想を逆転させて <strong>べき乗の定義から得られた指数法則を定義内へ自然に埋め込もう</strong>.</p>
 <div class="markdown-alert markdown-alert-caution">
@@ -319,6 +320,36 @@ $(ab^{-1})^{n} = a^nb^{-n}$ を示せばよいが, これば法則3より成立�
 <div style="text-align: right">$\blacksquare$</div>
 </div>
 </details>
+<div class="markdown-heading"><h2 class="heading-element">有理数のべき乗</h2><a id="user-content-有理数のべき乗" class="anchor" aria-label="Permalink: 有理数のべき乗" href="#有理数のべき乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-alert markdown-alert-caution">
+<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 9:  べき乗 (有理数)</p>
+<p>$b&gt;0$ を実数, $r\ge0$ を <strong>有理数</strong> とする.<br>
+$r = \dfrac{m}{n}$ ($m,n$は整数, かつ $n&gt;0$) であるとき, <strong>べき乗 (累乗, exponentiation)</strong> $b^r$ は次のように定義される.
+$$
+b^r :=
+\begin{cases}
+1 & \text{if\quad$m=0,\;n=1$}, \\
+b^{m-1} \times b & \text{if\quad$m&gt;0,\;n=1$}, \\
+\dfrac{1}{b^m} & \text{if\quad$m&lt;0,\;n=1$}, \\
+(b^{1/n})^m & \text{if\quad$n\neq1$}.
+\end{cases}
+$$
+ここで, $b^{1/n}$ は $x^n = b$ を満たすような <strong>正の実数</strong> $x$ である.</p></p>
+
+</div>
+<div class="markdown-alert markdown-alert-important">
+<p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark: well-defined 性について</p>
+<p>この定義は well-defined であるかどうかを確認する必要がある.</p>
+<ol>
+<li>$b&gt;0$ であるとき, $b^{1/n}$ は一意に定まるか？</li>
+<li>$r$ の分数表記 $m/n$ で約分などによる違いに依存しないか？</li>
+</ol>
+<p>の2つが問題になるが, これば以降の命題・定理で保証される.</p>
+<p>しかし, もし$b\le0$ を許す, あるいは $x$ に負の実数を認めてしまった場合は $b^r$ は一意に定まらなくなってしまう.<br>
+例えば $(-1)^{1/3}$ を考えると, これは $(-1)^{2/6}$ と値が一致するべきだろう.
+$x^3=-1$ となるような実数 $x$ は $-1$ が存在する. しかし, $x^6=-1$ となるような実数 $x$ は存在しないので, well-defined とは言えない.</p></p>
+
+</div>
 <div class="markdown-alert markdown-alert-default">
 <p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note:</p>
 <p>只今執筆中...</p></p>
