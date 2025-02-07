@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://volatilerye.github.io/mathematics/index.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="volatile rye.">
-  <link rel="icon" href="../restio.ico">
+  <link rel="icon" href="https://volatilerye.github.io/mathematics/restio.ico">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
     integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
@@ -25,8 +25,8 @@
     integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-  <link rel="stylesheet" href="../style.css">
-  <title>指数関数・べき関数とその考察</title>
+  <link rel="stylesheet" href="https://volatilerye.github.io/mathematics/style.css">
+  <title>deep directory</title>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -59,7 +59,7 @@
   <div class="side">
     <div class="toc">
       <div>
-        <a href="../index.html"><img src="../restio.png" , alt="volatile rye."></a>
+        <a href="https://volatilerye.github.io/mathematics/index.html"><img src="https://volatilerye.github.io/mathematics/restio.png" , alt="volatile rye."></a>
       </div>
       <div>
         <h3>search in the site:</h3>
@@ -70,7 +70,7 @@
                 d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
               </path>
             </svg>Remark</p>
-          <p>サイト内検索の機能はまだ機能していません！ごめんね</p>
+          <p>現在検索が使えるように準備中です！</p>
         </div>
         <form action="https://www.google.com/search" method=get>
           <input type="hidden" name="hl" value="ja">
@@ -81,12 +81,18 @@
       </div>
       <div>
         <h3>table of contents:</h3>
+        <div class="markdown-alert markdown-alert-warning">
+          <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1"
+              width="16" height="16" aria-hidden="true">
+              <path
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
+              </path>
+            </svg>Remark</p>
+          <p>現在はバグでテーブルのリンクが上手く機能しない場合があります！ごめんね</p>
+        </div>
         <div class="toc">
 <ul>
-<li><a href="#user-content-_1">指数関数・べき関数とその考察</a><ul>
-<li><a href="#user-content-exponentiation">べき乗 (exponentiation)</a></li>
-</ul>
-</li>
+<li><a href="#user-content-deep-directory">deep directory</a></li>
 </ul>
 </div>
 
@@ -95,27 +101,12 @@
   </div>
   <div class="main">
     <div class="filepath">
-      <div class="item-back"><a href="../index.html">☜ back</a></div>
-      <div class="item-info">/ <a href=../index.html>index</a> / 指数関数・べき関数とその考察</div>
+      <div class="item-back"><a href="../test.html">☜ back</a></div>
+      <div class="item-info"><a href=../../index.html>index</a> / <a href="../test.html">表示テスト用</a> / deep directory</div>
     </div>
     <div class="contents">
-      <div class="markdown-heading"><h1 class="heading-element">指数関数・べき関数とその考察</h1><a id="user-content-指数関数べき関数とその考察" class="anchor" aria-label="Permalink: 指数関数・べき関数とその考察" href="#指数関数べき関数とその考察"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>指数関数・べき関数は高校数学でも取り扱われるが, その厳密な定義は意外にも教わることはない.
-この記事ではより厳密に議論するために <strong>べき乗</strong> から始め, 最終的には複素関数にまで拡張することを目標に議論する.</p>
-<div class="markdown-heading"><h2 class="heading-element">べき乗 (exponentiation)</h2><a id="user-content-べき乗-exponentiation" class="anchor" aria-label="Permalink: べき乗 (exponentiation)" href="#べき乗-exponentiation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Definition 1  べき乗</p><p>$b$ を実数, $n$ を正の整数 としたとき, <strong>べき乗 (exponentiation)</strong> $b^n$ は次のように定義される.
-$$
-\begin{cases}
-b & \text{(if n=1)}, \\
-b & \times b^{n-1}  \text{otherwise}.
-\end{cases}
-$$</p>
-<p>このとき, $b$ を <strong>底 (base)</strong>, $n$ を <strong>指数 (exponent)</strong> という.</p></p></div>
-<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>ここでは実数体 (実数と四則演算で構成された体系) するが, 定義1はより一般化した群にも適用可能である.
-(当然, 次の定理2も実数体のときと同様に証明可能).</p></p></div>
-<blockquote>
-<p>[!THEOREM] Theorem 2 べき乗の基本法則</p>
-</blockquote>
+      <div class="markdown-heading"><h1 class="heading-element">deep directory</h1><a id="user-content-deep-directory" class="anchor" aria-label="Permalink: deep directory" href="#deep-directory"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="deep-directory/next.html">next</a></p>
 
     </div>
   </div>

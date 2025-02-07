@@ -4,7 +4,7 @@
 > このページまで見てくれたんですね! しかし残念, 何も無いんです.  
 > すまんな.
 
-- [$\KaTeX$ simple test](test/simple-latex.md)
+- [deep_directory](test/deep-directory.md)
 - [$\KaTeX$ test](test/latex.md)
 - [markdown test](test/test.md)
 - [alert test](test/alert.md)
