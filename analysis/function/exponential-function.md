@@ -1,7 +1,6 @@
 # 指数関数・べき関数とその考察
 
-指数関数・べき関数は高校数学でも取り扱われるが, その厳密な定義は意外にも教わることはない.
-この記事ではより厳密に議論するために **べき乗** から始め, 最終的には複素関数にまで拡張することを目標に議論する.
+この記事ではべき関数についてのより厳密な議論をするために **べき乗** から始め, 最終的には複素関数にまで拡張することを目標に議論する.
 
 ## べき乗 (累乗, exponentiation)
 
@@ -43,7 +42,7 @@
 > 1. $$a^mb^n = a^{m+n}.$$
 > 2. $$(a^m)^n = a^{mn}.$$
 > 3. $$(ab)^n = a^nb^n.$$
-> 3. $$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$
+> 3. $b=0$ のとき, $$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$
 
 <details>
 <summary>証明 (クリックで展開)</summary>
@@ -177,8 +176,6 @@ $$
 <summary>証明 (クリックで展開)</summary>
 
 > [!PROOF]  
-> 定理3より, $m,n$ がともに正の整数でない場合を新たに証明すればよい.  
-> 
 > **1.**  
 > 命題5の $m$ を $m+n$ に置換すると, 
 > $$
@@ -205,31 +202,72 @@ $$
 
 ## 有理数のべき乗
 
+整数のべき乗を求めることができたのならば, 
+
 > [!DEFINITION] Definition 9:  べき乗 (有理数)
 > $b>0$ を実数, $r\ge0$ を **有理数** とする.  
 > $r = \dfrac{m}{n}$ ($m,n$は整数, かつ $n>0$) であるとき, **べき乗 (累乗, exponentiation)** $b^r$ は次のように定義される.
 > $$
-> b^r := 
+> \begin{align*}
+> b^{1/n} &:= x\quad\text{s.t.}\quad b=x^n\quad\text{where}\quad{x>0},\\
+> b^r &:= 
 > \begin{cases}
->   1 & \text{if\quad$m=0,\;n=1$}, \\
->   b^{m-1} \times b & \text{if\quad$m>0,\;n=1$}, \\
->   \dfrac{1}{b^m} & \text{if\quad$m<0,\;n=1$}, \\
->   (b^{1/n})^m & \text{if\quad$n\neq1$}.
+>   1 & \text{if\quad$m=0,$} \\
+>   (b^{1/n})^{m-1} \times b & \text{if\quad$m>0,$} \\
+>   \dfrac{1}{(b^{1/n})^m} & \text{if\quad$m<0$}. \\
 > \end{cases}
+> \end{align*}
 > $$
-> ここで, $b^{1/n}$ は $x^n = b$ を満たすような **正の実数** $x$ である.
 
-> [!REMARK] Remark: well-defined 性について
-> この定義は well-defined であるかどうかを確認する必要がある.
-> 
-> 1. $b>0$ であるとき, $b^{1/n}$ は一意に定まるか？
-> 2. $r$ の分数表記 $m/n$ で約分などによる違いに依存しないか？
-> 
-> の2つが問題になるが, これば以降の命題・定理で保証される.
+> [!PROPOSITION] Proposition 10: &nbsp; $f_n(x)=x^n$
+> $f_n(x) = x^n\;(n\in\mathbb{Z^+})$ であるような関数 $f_n:(0,\infty)\to(0,\infty)$ は逆関数を持つ: すなわち $f_n$ は全単射である.
+
+<details>
+<summary>証明 (クリックで展開)</summary>
+
+> [!PROOF]
+> $f_n(x)=x^n$ は狭義単調増加だから, $a<b \Longrightarrow f_n(x)<f_n(y)$ より単射である.
 >
-> しかし, もし$b\le0$ を許す, あるいは $x$ に負の実数を認めてしまった場合は $b^r$ は一意に定まらなくなってしまう.  
->  例えば $(-1)^{1/3}$ を考えると, これは $(-1)^{2/6}$ と値が一致するべきだろう.
-> $x^3=-1$ となるような実数 $x$ は $-1$ が存在する. しかし, $x^6=-1$ となるような実数 $x$ は存在しないので, well-defined とは言えない.
+> また, $f$ は $x\in[0,\infty)$ で連続である. 全射でないと仮定すると, 任意の$x>0$ において $f_n(x)\neq c$ であるような $c>0$ が存在するが, $b>c$ であるような $b$ を適当に選ぶと中間値の定理より $f_n(0)<f_n(c)<f(b)$ となるような $c$ が存在するので矛盾.
+
+</details>
+
+> [!PROPOSITION] Proposition 11:  べき乗 (有理数)の定義の well-defined 性
+> 定義9は well-defined である. すなわち,
+> 
+> 1. $b^r$ となる実数を実際に定義に従って取ることができる.
+> 2. $r=m/n$ のとき, $m,n$ の選択に依存しない.
+
+<details>
+<summary>証明 (クリックで展開)</summary>
+
+> [!PROOF]
+> 命題10より, $f_n(x)=x^n$ は逆関数 $f_n^{-1}(x)$ が存在するので
+> $$x^{m/n} = (f_n^{-1}(x))^m$$
+> から定義に従った実数が定まる.
+>
+> また, $\dfrac{m}{n} = \dfrac{m'}{n'}$ であるならば, $m'=km,\;n'=kn$ となるような整数 $k$ が 存在するので, $b^{m'/n'}=x$ とすると
+> $$
+> \begin{align*}
+> & b^{m'/n'} = x \\
+> \Longrightarrow\;& (b^{1/n'})^{m'} = x \\
+> \Longrightarrow\;& f_{n'}^{-1}(b) = f_{m'}^{-1}(x) \\
+> \Longrightarrow\;& (f_n \circ f_k)^{-1}(b) = (f_m\circ f_k)^{-1}(x) \quad (f_{mn}(x) = x^{mn} = (x^m)^n = (f_n\circ f_m)(x))\\
+> \Longrightarrow\;& (f_k^{-1} \circ f_n^{-1})(b) = (f_k^{-1}\circ f_m^{-1})(x)\\
+> \Longrightarrow\;& f_k(f_n^{-1}(b)) = f_k(f_m^{-1}(x))\\
+> \Longrightarrow\;& f_n^{-1}(b) = f_m^{-1}(x)\quad(f \text{が単射より})\\
+> \Longrightarrow\;& b^{m/n} = x
+> \end{align*}
+> $$
+> でああるから, $r^{m/n} = r^{m'/n'}$ が示せた.
+
+</details>
+
+> [!Remark] Remark.  定義域について
+> もし$b\le0$ を許す, あるいは $x$ に負の実数を認めてしまった場合は $b^r$ は well-defined ではなくなってしまう.
+> 
+> 例えば $(-1)^{1/3}$ を考えると, これは $(-1)^{2/6}$ と値が一致するべきだろう.
+> すると $x^3=-1$ となるような実数 $x$ は $-1$ が存在するが, $x^6=-1$ となるような実数 $x$ は存在しないので, これは $r$ の分数の表記方法に依存してしまう.
 
 > [!NOTE]
 > 只今執筆中...
