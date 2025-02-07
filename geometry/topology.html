@@ -25,78 +25,31 @@
     integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-  <link rel="stylesheet" href="https://volatilerye.github.io/mathematics/style.css">
+  <link rel="stylesheet" href="/style.css">
   <title>位相幾何学 (topology)</title>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false },
-        ],
-        ignoredTags: [
-          "script",
-          "noscript",
-          "style",
-          "textarea",
-          "pre",
-          "code"
-        ],
-        preProcess: function (text) {
-          // \$ を通貨記号として扱うためにエスケープされたものを置換
-          return text.replace(/\\\$/g, "ESCAPED_DOLLAR");
-        },
-      });
-
-      // 通貨記号用に一時的に置換したテキストを元に戻す
-      document.body.innerHTML = document.body.innerHTML.replace(/ESCAPED_DOLLAR/g, "$");
-    });
-  </script>
+  <script defer src="/script.js"></script>
 </head>
 
 <body>
   <div class="side">
+    <div class="image-container">
+      <a href="https://volatilerye.github.io/mathematics/index.html"><img
+          src="https://volatilerye.github.io/mathematics/restio.png" , alt="volatile rye."></a>
+      <div class="centered-logo">volatil<span class="rotated">e</span> ry<span class="rotated">e</span></div>
+    </div>
+    <div class="search">
+      <h3>search in the site:</h3>
+      <form action="https://www.google.com/search" method=get>
+        <input type="hidden" name="hl" value="ja">
+        <input type="hidden" name="sitesearch" value="https://volatilerye.github.io/mathematics">
+        <input type="textbox" name="q" size="18" maxLength="255">
+        <input type="submit" name="btnG" value="search">
+      </form>
+    </div>
     <div class="toc">
-      <div>
-        <a href="https://volatilerye.github.io/mathematics/index.html"><img src="https://volatilerye.github.io/mathematics/restio.png" , alt="volatile rye."></a>
-      </div>
-      <div>
-        <h3>search in the site:</h3>
-        <div class="markdown-alert markdown-alert-warning">
-          <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1"
-              width="16" height="16" aria-hidden="true">
-              <path
-                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
-              </path>
-            </svg>Remark</p>
-          <p>現在検索が使えるように準備中です！</p>
-        </div>
-        <form action="https://www.google.com/search" method=get>
-          <input type="hidden" name="hl" value="ja">
-          <input type="hidden" name="sitesearch" value="https://volatilerye.github.io/mathematics">
-          <input type="textbox" name="q" size="18" maxLength="255">
-          <input type="submit" name="btnG" value="search">
-        </form>
-      </div>
-      <div>
-        <h3>table of contents:</h3>
-        <div class="markdown-alert markdown-alert-warning">
-          <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1"
-              width="16" height="16" aria-hidden="true">
-              <path
-                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z">
-              </path>
-            </svg>Remark</p>
-          <p>現在はバグでテーブルのリンクが上手く機能しない場合があります！ごめんね</p>
-        </div>
-        <div class="toc">
-<ul>
-<li><a href="#user-content-topology">位相幾何学 (topology)</a></li>
-</ul>
-</div>
-
-      </div>
+      <h3>table of contents:</h3>
+      :toc:
     </div>
   </div>
   <div class="main">
@@ -118,7 +71,6 @@
 
     </div>
   </div>
-
 </body>
 
 </html>

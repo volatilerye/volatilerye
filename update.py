@@ -76,11 +76,6 @@ default_titles = {
 class_prefix = "markdown-alert"
 
 
-def capitalize(string: str) -> str:
-    """最初の文字を大文字化する関数"""
-    return string[0].upper() + string[1:]
-
-
 def parse_markdown_to_alert(md: str) -> str:
     """
     MarkdownをGitHub風のアラートボックスHTMLに変換する。
@@ -209,13 +204,7 @@ def generate_html_file(md_path: str):
     html_path = re.sub("^markdown", ".", os.path.splitext(md_path)[0] + ".html")
 
     with open(html_path, "w") as f:
-        try:
-            html_text = re.sub(":toc:", fix_html_for_latex(toc), template_html)
-        except Exception as e:
-            html_text = re.sub(":toc:", f"regex error!", template_html)
-            print(f"toc: \u001b[32m{fix_html_for_latex(toc)}\u001b[0m")
-            print(e)
-        html_text = re.sub(":main:", rf"{main_text}", html_text)
+        html_text = re.sub(":main:", rf"{main_text}", template_html)
         try:
             html_text = re.sub(
                 ":title:",
@@ -258,10 +247,14 @@ def generate_html_file(md_path: str):
             for i in range(dir_depth):
                 if i == dir_depth - 1:
                     contents_info += (
-                        md.toc_tokens[0]["name"] if len(md.toc_tokens) > 0 else "untitled"
+                        md.toc_tokens[0]["name"]
+                        if len(md.toc_tokens) > 0
+                        else "untitled"
                     )
                 elif i == 0:
-                    contents_info += f'<a href={"../" * (dir_depth -1)}index.html>index</a> / '
+                    contents_info += (
+                        f'<a href={"../" * (dir_depth -1)}index.html>index</a> / '
+                    )
                 else:
                     contents_path = "/".join(md_dir_list[: i + 1]) + ".md"
                     with open(contents_path, "r") as g:
@@ -286,8 +279,7 @@ def generate_html_file(md_path: str):
         f.write(html_text)
 
 
-
-for p in glob.glob('*/**/*.html', recursive=True):
+for p in glob.glob("*/**/*.html", recursive=True):
     if os.path.isfile(p):
         os.remove(p)
 
