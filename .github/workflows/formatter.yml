@@ -50,4 +50,4 @@ jobs:
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: refactor: ♻️ applied code formatter
+          commit_message: "refactor: ♻️ applied code formatter"
