@@ -75,19 +75,19 @@ b & \text{if\quad$n=1$}, \\
 b^{n-1} \times b & \text{otherwise}.
 \end{cases}
 $$
-このとき, $b$ を <strong>底 (基数, base)</strong>, $n$ を <strong>指数 (べき数, exponent)</strong> という.</p></p>
+このとき, $b$ を <strong>底 (基数, base)</strong>, $n$ を <strong>指数 (べき数, exponent)</strong> という.</p>
 
 </div>
 <p>すなわち, $b^n = \underbrace{b\times b\times\dots\times b\,}_{n\text{ times}}$ というように $b$ を $n$ 個掛けたものを $b^n$ と定義している.</p>
 <div class="markdown-alert markdown-alert-important">
 <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark:</p>
-<p>括弧を用いず $a^{b^c}$ と書いた場合, $a^{(b^c)}$ のように右側から計算するのが一般的である. (右結合性)</p></p>
+<p>括弧を用いず $a^{b^c}$ と書いた場合, $a^{(b^c)}$ のように右側から計算するのが一般的である. (右結合性)</p>
 
 </div>
 <div class="markdown-alert markdown-alert-default">
 <p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note: 群との関係性</p>
 <p>ここでは実数体 (実数と四則演算で構成された体系) を前提に定義しているが, 定義1はより一般化した群にも同じように定義できる. また, 群の結合律によって定義1が well-defined であることが保証されている.</p>
-<p>ただし, 以降の定理3から一般の体系では成立しない法則も存在するので注意.</p></p>
+<p>ただし, 以降の定理3から一般の体系では成立しない法則も存在するので注意.</p>
 
 </div>
 <p>定義から次の命題は明らかであろう.</p>
@@ -98,26 +98,24 @@ $$
 <li>$$b^1=b.$$</li>
 <li>$$1^n=1.$$</li>
 <li>$$b^n = 0 \Longleftrightarrow b=0.$$</li>
-</ol></p>
-
-</div>
+</ol>
+</blockquote>
 <p>べき乗は次の <strong>指数法則</strong> が成立する.</p>
-<div class="markdown-alert markdown-alert-warning">
-<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 3:  指数法則</p>
-<p>$a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.</p>
+<blockquote>
+<p>[!THEOREM] Theorem 3:  指数法則
+$a, b$ を実数, $m,n$ を正の整数としたとき, 次が成立する.</p>
 <ol>
 <li>$$a^mb^n = a^{m+n}.$$</li>
 <li>$$(a^m)^n = a^{mn}.$$</li>
 <li>$$(ab)^n = a^nb^n.$$</li>
 <li>$b=0$ のとき, $$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$</li>
-</ol></p>
-
-</div>
+</ol>
+</blockquote>
 <details>
 <summary>証明 (クリックで展開)</summary>
-<div class="markdown-alert markdown-alert-default">
-<p class="markdown-alert-title">Proof:</p>
-<p><strong>1.</strong><br>
+<blockquote>
+<p>[!PROOF]<br>
+<strong>1.</strong><br>
 $n=1$ のときは定義より明らか. $n=k$ のとき成立すると仮定すると,
 $$a^ma^{k+1}=a^m(a^ka)=(a^ma^k)a=a^{m+k}a=a^{m+(k+1)}$$
 であるから, $n=k+1$ のときにも成立し, 帰納法によって示された.</p>
@@ -134,8 +132,8 @@ $$(ab)^{k+1}=(ab)^kab=a^kb^kab=a^kab^kb=a^{k+1}b^{k+1}$$
 $$
 \left(\dfrac{a}{b}\cdot b\right)^n=\left(\dfrac{a}{b}\right)^nb^n \Longrightarrow a^n = \left(\dfrac{a}{b}\right)^nb^n
 \Longrightarrow \left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.
-$$</p></p>
-<div style="text-align: right">$\blacksquare$</div>
+$$</p>
+
 </div>
 </details>
 <div class="markdown-heading"><h2 class="heading-element">負の整数の乗</h2><a id="user-content-負の整数の乗" class="anchor" aria-label="Permalink: 負の整数の乗" href="#負の整数の乗"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -151,7 +149,7 @@ b^n :=
 b^{n-1} \times b & \text{if\quad$n&gt;0$}, \\
 \dfrac{1}{b^n} & \text{otherwise.}
 \end{cases}
-$$</p></p>
+$$</p>
 
 </div>
 <p>拡張前 (定義1) で定義可能なべき乗は拡張後 (定義4) と一致していることは明らかであろう.</p>
@@ -168,7 +166,7 @@ $$
 <div class="markdown-alert markdown-alert-important">
 <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark:  底が 0 のとき</p>
 <p>ただし底が 0 のときは $n&lt;0$ のときの定義に当てはめると $\dfrac{1}{0}$ となるため, $0^n\;(n\leq0)$は定義することができない.</p>
-<p>また, 系3の3番目の命題は成立しなくなることに留意せよ.</p></p>
+<p>また, 系3の3番目の命題は成立しなくなることに留意せよ.</p>
 
 </div>
 <p>今回の定義の拡張では定理2の法則1のみを利用したが, 残りの指数法則の性質も引き継がれる.
@@ -182,13 +180,12 @@ $$
 <li>$$1^n=1.$$</li>
 <li>$$b^nb^{-n}=1.$$</li>
 <li>$$b^n \neq 0.$$</li>
-</ol></p>
-
-</div>
-<div class="markdown-alert markdown-alert-warning">
-<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 6:  べき乗同士の除法</p>
-<p>$a$ を0でない実数, $m,n$ を整数としたとき,
-$$\dfrac{a^m}{a^n} = a^{m-n}.$$</p></p>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!PROPOSITION] Proposition 6:  べき乗同士の除法
+$a$ を0でない実数, $m,n$ を整数としたとき,
+$$\dfrac{a^m}{a^n} = a^{m-n}.$$</p>
 
 </div>
 <details>
@@ -202,15 +199,14 @@ $$\dfrac{a^m}{a^n} = a^{m-n}.$$</p></p>
 <li>$m\le n,\;n\ge0$ のとき, 定理3から $a^{m-n}a^{n} = \dfrac{a^{n}}{a^{n-m}} = \dfrac{a^ma^{n}}{a^ma^{n-m}}
 = \dfrac{a^ma^{n}}{a^n} = a^m$ より成立.</li>
 <li>$m\le n,\;n&lt;0$ のとき, 定理3から $a^{m-n}a^{n} = \dfrac{1}{a^{-n}a^{n-m}} = \dfrac{1}{a^m} = a^m$ より成立.</li>
-</ul></p>
-<div style="text-align: right">$\blacksquare$</div>
-</div>
+</ul>
+</blockquote>
 </details>
-<div class="markdown-alert markdown-alert-tip">
-<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Lemma 7:  負の整数乗</p>
-<p>$a$ を0でない実数, $n$ を整数としたとき,
-$$(a^n)^{-1} = (a^{-1})^n = a^{-n}.$$</p></p>
-
+<blockquote>
+<p>[!LEMMA] Lemma 7:  負の整数乗
+$a$ を0でない実数, $n$ を整数としたとき,
+$$(a^n)^{-1} = (a^{-1})^n = a^{-n}.$$</p>
+<div style="text-align: right">$\blacksquare$</div>
 </div>
 <details>
 <summary>証明 (クリックで展開)</summary>
@@ -228,26 +224,24 @@ $$
 (a^{-1})^{-m} &= \left(\dfrac{1}{a}\right)^{-m} = \dfrac{1}{\left(\dfrac{1}{a}\right)^m} = \dfrac{1}{\dfrac{1}{a^m}} = a^m.
 \end{align*}
 $$</li>
-</ul></p>
-<div style="text-align: right">$\blacksquare$</div>
-</div>
+</ul>
+</blockquote>
 </details>
-<div class="markdown-alert markdown-alert-warning">
-<p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Theorem 8:  指数法則</p>
-<p>$a, b$ を0でない実数, $m,n$ を整数としたとき, 次が成立する.</p>
+<blockquote>
+<p>[!THEOREM] Theorem 8:  指数法則
+$a, b$ を0でない実数, $m,n$ を整数としたとき, 次が成立する.</p>
 <ol>
 <li>$$a^ma^n = a^{m+n}.$$</li>
 <li>$$(a^m)^n = a^{mn}.$$</li>
 <li>$$(ab)^n = a^nb^n.$$</li>
 <li>$$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}.$$</li>
-</ol></p>
-
-</div>
+</ol>
+</blockquote>
 <details>
 <summary>証明 (クリックで展開)</summary>
-<div class="markdown-alert markdown-alert-default">
-<p class="markdown-alert-title">Proof:</p>
-<p><strong>1.</strong><br>
+<blockquote>
+<p>[!PROOF]<br>
+<strong>1.</strong><br>
 命題5の $m$ を $m+n$ に置換すると,
 $$
 \dfrac{a^{m+n}}{a^n} = a^m \Longrightarrow a^ma^n = a^{m+n}.
@@ -266,7 +260,7 @@ $n\ge0$ のときは系3または系6から明らか.<br>
 $n&lt;0$ のとき,
 $$(ab)^n = \dfrac{1}{(ab)^{-n}} = \dfrac{1}{a^{-n}b^{-n}} = \dfrac{1}{a^{-n}}\dfrac{1}{b^{-n}} = a^nb^n.$$</p>
 <p><strong>4.</strong><br>
-$(ab^{-1})^{n} = a^nb^{-n}$ を示せばよいが, これば法則3より成立する.</p></p>
+$(ab^{-1})^{n} = a^nb^{-n}$ を示せばよいが, これば法則3より成立する.</p>
 <div style="text-align: right">$\blacksquare$</div>
 </div>
 </details>
@@ -286,12 +280,12 @@ b^r &:=
 \dfrac{1}{(b^{1/n})^m} & \text{if\quad$m&lt;0$}. \\
 \end{cases}
 \end{align*}
-$$</p></p>
+$$</p>
 
 </div>
 <div class="markdown-alert markdown-alert-warning">
 <p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Proposition 10:   $f_n(x)=x^n$</p>
-<p>$f_n(x) = x^n\;(n\in\mathbb{Z^+})$ であるような関数 $f_n:(0,\infty)\to(0,\infty)$ は逆関数を持つ: すなわち $f_n$ は全単射である.</p></p>
+<p>$f_n(x) = x^n\;(n\in\mathbb{Z^+})$ であるような関数 $f_n:(0,\infty)\to(0,\infty)$ は逆関数を持つ: すなわち $f_n$ は全単射である.</p>
 
 </div>
 <details>
@@ -299,7 +293,7 @@ $$</p></p>
 <div class="markdown-alert markdown-alert-default">
 <p class="markdown-alert-title">Proof:</p>
 <p>$f_n(x)=x^n$ は狭義単調増加だから, $a&lt;b \Longrightarrow f_n(x)&lt;f_n(y)$ より単射である.</p>
-<p>また, $f$ は $x\in[0,\infty)$ で連続である. 全射でないと仮定すると, 任意の$x&gt;0$ において $f_n(x)\neq c$ であるような $c&gt;0$ が存在するが, $b&gt;c$ であるような $b$ を適当に選ぶと中間値の定理より $f_n(0)&lt;f_n(c)&lt;f(b)$ となるような $c$ が存在するので矛盾.</p></p>
+<p>また, $f$ は $x\in[0,\infty)$ で連続である. 全射でないと仮定すると, 任意の$x&gt;0$ において $f_n(x)\neq c$ であるような $c&gt;0$ が存在するが, $b&gt;c$ であるような $b$ を適当に選ぶと中間値の定理より $f_n(0)&lt;f_n(c)&lt;f(b)$ となるような $c$ が存在するので矛盾.</p>
 <div style="text-align: right">$\blacksquare$</div>
 </div>
 </details>
@@ -309,14 +303,13 @@ $$</p></p>
 <ol>
 <li>$b^r$ となる実数を実際に定義に従って取ることができる.</li>
 <li>$r=m/n$ のとき, $m,n$ の選択に依存しない.</li>
-</ol></p>
-
-</div>
+</ol>
+</blockquote>
 <details>
 <summary>証明 (クリックで展開)</summary>
-<div class="markdown-alert markdown-alert-default">
-<p class="markdown-alert-title">Proof:</p>
-<p>命題10より, $f_n(x)=x^n$ は逆関数 $f_n^{-1}(x)$ が存在するので
+<blockquote>
+<p>[!PROOF]
+命題10より, $f_n(x)=x^n$ は逆関数 $f_n^{-1}(x)$ が存在するので
 $$x^{m/n} = (f_n^{-1}(x))^m$$
 から定義に従った実数が定まる.</p>
 <p>また, $\dfrac{m}{n} = \dfrac{m'}{n'}$ であるならば, $m'=km,\;n'=kn$ となるような整数 $k$ が 存在するので, $b^{m'/n'}=x$ とすると
@@ -332,20 +325,20 @@ $$
 \Longrightarrow\;& b^{m/n} = x
 \end{align*}
 $$
-でああるから, $r^{m/n} = r^{m'/n'}$ が示せた.</p></p>
-<div style="text-align: right">$\blacksquare$</div>
+でああるから, $r^{m/n} = r^{m'/n'}$ が示せた.</p>
+
 </div>
 </details>
 <div class="markdown-alert markdown-alert-important">
 <p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Remark.  定義域について</p>
 <p>もし$b\le0$ を許す, あるいは $x$ に負の実数を認めてしまった場合は $b^r$ は well-defined ではなくなってしまう.</p>
 <p>例えば $(-1)^{1/3}$ を考えると, これは $(-1)^{2/6}$ と値が一致するべきだろう.
-すると $x^3=-1$ となるような実数 $x$ は $-1$ が存在するが, $x^6=-1$ となるような実数 $x$ は存在しないので, これは $r$ の分数の表記方法に依存してしまう.</p></p>
+すると $x^3=-1$ となるような実数 $x$ は $-1$ が存在するが, $x^6=-1$ となるような実数 $x$ は存在しないので, これは $r$ の分数の表記方法に依存してしまう.</p>
 
 </div>
 <div class="markdown-alert markdown-alert-default">
 <p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note:</p>
-<p>只今執筆中...</p></p>
+<p>只今執筆中...</p>
 
 </div>
 

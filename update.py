@@ -88,13 +88,13 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(markers_list)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s+?</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
     def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s+?</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
@@ -194,8 +194,6 @@ def generate_html_file(md_path: str):
 
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
-        toc = md.toc
-        toc = re.sub('"#', '"#user-content-', toc)
 
     main_text = convert_markdown_to_html(markdown_text)
     main_text = parse_markdown_to_alert(main_text)
