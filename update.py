@@ -88,13 +88,13 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(markers_list)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s+?</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)\s*</p>\s*</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
     def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</p>\s+?</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)\s*</p>\s*</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
@@ -195,8 +195,11 @@ def generate_html_file(md_path: str):
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
 
+    print(markdown_text)
     main_text = convert_markdown_to_html(markdown_text)
+    print(main_text)
     main_text = parse_markdown_to_alert(main_text)
+    print(main_text)
 
     with open("template.html", "r") as f:
         template_html = f.read()
@@ -297,7 +300,8 @@ def get_changed_files():
 
 
 # markdown_files = [file for file in get_changed_files() if re.fullmatch(r".+\.md", file)]
-markdown_files = glob.glob('**/*.md', recursive=True)
+# markdown_files = glob.glob('**/*.md', recursive=True)
+markdown_files = glob.glob('test/test/test2.md', recursive=True)
 html_files = [re.sub(".md", ".html", file) for file in markdown_files]
 
 print(f"remove the following html files:\n{html_files}")
