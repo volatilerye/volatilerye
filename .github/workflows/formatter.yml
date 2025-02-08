@@ -1,0 +1,53 @@
+name: Format code
+
+on: push
+
+jobs:
+  formatter:
+    name: formatter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: '3.x'
+    permissions:
+      contents: write
+    steps:
+      # checkout
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      
+      # format python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install autoflake black isort
+      - name: autoflake
+        run: autoflake -r .
+      - name: black
+        run: black .
+      - name: isort
+        run: isort .
+
+      # format html/css/js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Prettier
+        run: npm install -g prettier
+
+      - name: Format HTML, CSS, JS with Prettier
+        run: prettier --write "**/*.{html,css,js}"
+      
+      # commit
+      - name: Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: refactor: ♻️ applied code formatter
