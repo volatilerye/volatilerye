@@ -254,7 +254,7 @@ def generate_html_file(md_path: str):
                     )
                 elif i == 0:
                     contents_info += (
-                        f'<a href={"../" * (dir_depth -1)}index.html>index</a> / '
+                        f'<a href="{"../" * (dir_depth -1)}index.html">index</a> / '
                     )
                 else:
                     contents_path = "/".join(md_dir_list[: i + 1]) + ".md"
@@ -298,7 +298,8 @@ def get_changed_files():
     return changed_files
 
 
-markdown_files = [file for file in get_changed_files() if re.fullmatch(r".+\.md", file)]
+# markdown_files = [file for file in get_changed_files() if re.fullmatch(r".+\.md", file)]
+markdown_files = glob.glob('**/*.md', recursive=True)
 html_files = [re.sub(".md", ".html", file) for file in markdown_files]
 
 print(f"remove the following html files:\n{html_files}")
