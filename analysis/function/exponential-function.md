@@ -34,7 +34,6 @@
 > 2. $$1^n=1.$$
 > 3. $$b^n = 0 \Longleftrightarrow b=0.$$
 
-
 べき乗は次の **指数法則** が成立する.
 
 > [!THEOREM] Theorem 3:  指数法則

@@ -88,13 +88,13 @@ def parse_markdown_to_alert(md: str) -> str:
     # 正規表現の準備
     marker_name_re = "|".join(markers_list)
     pattern = re.compile(
-        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)\s*</p>\s*</blockquote>",
+        rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
         re.IGNORECASE | re.MULTILINE | re.DOTALL,
     )
 
     def replace(text: re.Match) -> str:
         sub_pattern = re.compile(
-            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)\s*</p>\s*</blockquote>",
+            rf"<blockquote>\s*<p>\[!({marker_name_re})?\]\s*?(.*?)([\r\n]|<br>)+(.*?)((?:(?!</blockquote>))*?)</blockquote>",
             re.IGNORECASE | re.MULTILINE | re.DOTALL,
         )
         match = sub_pattern.match(text.group(0))
@@ -299,10 +299,15 @@ def get_changed_files():
     return changed_files
 
 
-# markdown_files = [file for file in get_changed_files() if re.fullmatch(r".+\.md", file)]
-# markdown_files = glob.glob('**/*.md', recursive=True)
-markdown_files = glob.glob('test/test/test2.md', recursive=True)
-html_files = [re.sub(".md", ".html", file) for file in markdown_files]
+# Define whether to process all markdown files based on user option
+process_all = '--all' in os.sys.argv
+
+if process_all:
+    markdown_files = glob.glob('**/*.md', recursive=True)
+else:
+    markdown_files = [file for file in get_changed_files() if re.fullmatch(r".+\.md", file)]
+
+html_files = [re.sub(r"\.md", ".html", file) for file in markdown_files]
 
 print(f"remove the following html files:\n{html_files}")
 
@@ -315,6 +320,7 @@ else:
 print(f"generating html files from the following markdown files:\n{markdown_files}")
 
 for md in tqdm.tqdm(markdown_files):
+    # Placeholder for actual HTML generation logic
     generate_html_file(md)
 else:
     print("✅ DONE: generated html files.")
