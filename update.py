@@ -195,11 +195,8 @@ def generate_html_file(md_path: str):
         md = markdown.Markdown(extensions=["toc"])
         md.convert(temp_markdown_text)
 
-    print(markdown_text)
     main_text = convert_markdown_to_html(markdown_text)
-    print(main_text)
     main_text = parse_markdown_to_alert(main_text)
-    print(main_text)
 
     with open("template.html", "r") as f:
         template_html = f.read()

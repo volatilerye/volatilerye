@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="volatile rye">
+  <meta property="og:description" content="volatile rye's mathematics note.">
+  <meta property="og:image" content="https://volatilerye.github.io/mathematics/restio.png">
+  <meta property="og:url" content="https://volatilerye.github.io/mathematics/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="volatile rye.">
+  <link rel="icon" href="https://volatilerye.github.io/mathematics/restio.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+    integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+    integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+    crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://volatilerye.github.io/mathematics/style.css">
+  <title>#4: 確率</title>
+
+  <script defer src="https://volatilerye.github.io/mathematics/script.js"></script>
+</head>
+
+<body>
+  <div class="side">
+    <div class="image-container">
+      <a href="https://volatilerye.github.io/mathematics/index.html"><img
+          src="https://volatilerye.github.io/mathematics/restio.png" , alt="volatile rye."></a>
+      <div class="centered-logo">volatil<span class="rotated">e</span> ry<span class="rotated">e</span></div>
+    </div>
+    <div class="search">
+      <h3>search in the site:</h3>
+      <form action="https://www.google.com/search" method=get>
+        <input type="hidden" name="hl" value="ja">
+        <input type="hidden" name="sitesearch" value="https://volatilerye.github.io/mathematics">
+        <input type="textbox" name="q" size="18" maxLength="255">
+        <input type="submit" name="btnG" value="search">
+      </form>
+    </div>
+    <div class="toc">
+      <h3>table of contents:</h3>
+      :toc:
+    </div>
+  </div>
+  <div class="main">
+    <div class="filepath">
+      <div class="item-back"><a href="../statistics1-draft.html">☜ back</a></div>
+      <div class="item-info"><a href="../../index.html">index</a> / <a href="../statistics1-draft.html">統計学入門 draft</a> / #4: 確率</div>
+    </div>
+    <div class="contents">
+      <div class="markdown-heading"><h1 class="heading-element">#4: 確率</h1><a id="user-content-4-確率" class="anchor" aria-label="Permalink: #4: 確率" href="#4-確率"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">4.2  標本空間と事象</h2><a id="user-content-42--標本空間と事象" class="anchor" aria-label="Permalink: 4.2  標本空間と事象" href="#42--標本空間と事象"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>標本点</strong> sample point: 試行で起こり得る結果</li>
+<li>
+<strong>標本空間, 全事象</strong> sample space: 全ての標本点の集合</li>
+<li>
+<strong>事象</strong> event: 標本空間の部分集合となるような集合</li>
+<li>
+<strong>根元事象</strong> elementary event: 1つの事象からなる集合</li>
+<li>
+<strong>複合事象</strong>: 根元事象でない事象</li>
+</ul>
+<div class="markdown-alert markdown-alert-note">
+<p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Example: コインの例</p></p>
+<p><p>コインを2回投げて表を1, 裏を0としたとき, 標本空間 $\Omega$ は
+$$\Omega = \{\{0,0\}, \{0,1\}, \{1,0\}, \{1,1\}\}.$$</p></p>
+
+</div>
+<div class="markdown-heading"><h3 class="heading-element">事象の演算</h3><a id="user-content-事象の演算" class="anchor" aria-label="Permalink: 事象の演算" href="#事象の演算"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>和集合</strong> union: $A\cup B.$</li>
+<li>
+<strong>和集合</strong> intersection: $A\cap B.$</li>
+<li>
+<strong>補集合</strong> complementary: $A^C.$</li>
+<li>
+<strong>排反事象</strong> disjoint: $A\cap B = \emptyset.$</li>
+</ul>
+<p><strong>ド・モルガンの法則</strong> de Morgan's law:
+$$(A\cup B)^C = A^C \cap B^C,\quad (A\cap B)^C = A^C \cup B^C.$$</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
